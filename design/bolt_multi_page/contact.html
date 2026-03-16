@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TAO Association of Nepal</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpeg" alt="TAO Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full">
+                    <span class="text-lg md:text-xl font-bold text-primary hidden md:inline">TAO Association of Nepal</span>
+                    <span class="text-lg font-bold text-primary md:hidden">TAN</span>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="locations.html" class="hover:text-primary transition-colors">Locations</a>
+                    <a href="seminars.html" class="hover:text-primary transition-colors">Seminars</a>
+                    <a href="temples.html" class="hover:text-primary transition-colors">Temples</a>
+                    <a href="travel.html" class="hover:text-primary transition-colors">Travel</a>
+                    <a href="gurus.html" class="hover:text-primary transition-colors">Gurus</a>
+                    <a href="gallery.html" class="hover:text-primary transition-colors">Gallery</a>
+                    <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+                    <a href="contact.html" class="text-primary font-semibold">Contact</a>
+                    <a href="donations.html" class="btn btn-secondary text-sm">Donate</a>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-muted hover:bg-border transition-colors">
+                        <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-muted">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu lg:hidden">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block py-2 hover:text-primary">Home</a>
+                <a href="about.html" class="block py-2 hover:text-primary">About</a>
+                <a href="locations.html" class="block py-2 hover:text-primary">Locations</a>
+                <a href="seminars.html" class="block py-2 hover:text-primary">Seminars</a>
+                <a href="temples.html" class="block py-2 hover:text-primary">Temples</a>
+                <a href="travel.html" class="block py-2 hover:text-primary">Travel</a>
+                <a href="gurus.html" class="block py-2 hover:text-primary">Gurus</a>
+                <a href="gallery.html" class="block py-2 hover:text-primary">Gallery</a>
+                <a href="blog.html" class="block py-2 hover:text-primary">Blog</a>
+                <a href="contact.html" class="block py-2 text-primary font-semibold">Contact</a>
+                <a href="donations.html" class="btn btn-secondary block text-center mt-4">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <p class="text-xl opacity-90">We'd love to hear from you</p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+                <h2 class="text-3xl font-bold text-primary mb-8">Head Office</h2>
+                <div class="card">
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Address</h3>
+                                <p class="text-muted-foreground">Sitapaila, Kathmandu 44600, Nepal</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Phone</h3>
+                                <p class="text-muted-foreground">+977-1-4123456</p>
+                                <p class="text-muted-foreground">+977-9801234567 (Mobile)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Email</h3>
+                                <p class="text-muted-foreground">info@taonepal.org</p>
+                                <p class="text-muted-foreground">contact@taonepal.org</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Office Hours</h3>
+                                <p class="text-muted-foreground">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                <p class="text-muted-foreground">Saturday: 10:00 AM - 3:00 PM</p>
+                                <p class="text-muted-foreground">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold text-primary mb-8">Send Us a Message</h2>
+                <div class="card">
+                    <form id="contact-form">
+                        <div class="mb-4">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Choose a subject...</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="seminar">Seminar Information</option>
+                                <option value="donation">Donation Question</option>
+                                <option value="membership">Membership</option>
+                                <option value="travel">Travel Programs</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Branch Contacts</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">Pokhara Branch</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm mb-1"><strong>Address:</strong></p>
+                                <p class="text-sm text-muted-foreground mb-3">Lakeside, Pokhara 33700</p>
+                            </div>
+                            <div>
+                                <p class="text-sm mb-1"><strong>Contact:</strong></p>
+                                <p class="text-sm text-muted-foreground">+977-61-234567</p>
+                                <p class="text-sm text-muted-foreground">pokhara@taonepal.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">Lalitpur Branch</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm mb-1"><strong>Address:</strong></p>
+                                <p class="text-sm text-muted-foreground mb-3">Jawalakhel, Lalitpur 44700</p>
+                            </div>
+                            <div>
+                                <p class="text-sm mb-1"><strong>Contact:</strong></p>
+                                <p class="text-sm text-muted-foreground">+977-1-5123456</p>
+                                <p class="text-sm text-muted-foreground">lalitpur@taonepal.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">Chitwan Branch</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm mb-1"><strong>Address:</strong></p>
+                                <p class="text-sm text-muted-foreground mb-3">Bharatpur, Chitwan 44200</p>
+                            </div>
+                            <div>
+                                <p class="text-sm mb-1"><strong>Contact:</strong></p>
+                                <p class="text-sm text-muted-foreground">+977-56-234567</p>
+                                <p class="text-sm text-muted-foreground">chitwan@taonepal.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-muted">
+            <h2 class="text-2xl font-bold text-primary mb-4 text-center">Find Us on the Map</h2>
+            <div class="aspect-video w-full rounded-lg overflow-hidden">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28261.438947236465!2d85.2872469!3d27.7172453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2044600!5e0!3m2!1sen!2snp!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            <p class="text-center text-muted-foreground mt-4">TAO Association of Nepal - Head Office, Sitapaila, Kathmandu</p>
+        </div>
+    </section>
+
+    <footer class="bg-card border-t border-border py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="logo.jpeg" alt="TAO Logo" class="h-10 w-10 rounded-full">
+                        <span class="font-bold text-primary">TAN</span>
+                    </div>
+                    <p class="text-muted-foreground text-sm">Cultivating wisdom and harmony through Taoist teachings in Nepal.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="locations.html" class="text-muted-foreground hover:text-primary">Our Locations</a></li>
+                        <li><a href="seminars.html" class="text-muted-foreground hover:text-primary">Events & Seminars</a></li>
+                        <li><a href="gurus.html" class="text-muted-foreground hover:text-primary">Our Teachers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="temples.html" class="text-muted-foreground hover:text-primary">Temple Projects</a></li>
+                        <li><a href="travel.html" class="text-muted-foreground hover:text-primary">Travel Programs</a></li>
+                        <li><a href="gallery.html" class="text-muted-foreground hover:text-primary">Gallery</a></li>
+                        <li><a href="blog.html" class="text-muted-foreground hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Contact</h4>
+                    <p class="text-sm text-muted-foreground mb-2">Sitapaila, Kathmandu, Nepal</p>
+                    <p class="text-sm text-muted-foreground mb-2">Phone: +977-1-4123456</p>
+                    <p class="text-sm text-muted-foreground mb-4">Email: info@taonepal.org</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light">
+                            <span class="text-sm">f</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white hover:bg-secondary-light">
+                            <span class="text-sm">Y</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white hover:opacity-80">
+                            <span class="text-sm">I</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-6 text-center text-sm text-muted-foreground">
+                <p class="mb-2">© 2025 TAO Association of Nepal. All Rights Reserved.</p>
+                <p class="text-xs">Non-profit spiritual organization registered in Nepal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            const html = $('html');
+            const themeToggle = $('#theme-toggle');
+            const sunIcon = $('.sun-icon');
+            const moonIcon = $('.moon-icon');
+            const mobileMenuToggle = $('#mobile-menu-toggle');
+            const mobileMenu = $('#mobile-menu');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                html.addClass('dark');
+                sunIcon.addClass('hidden');
+                moonIcon.removeClass('hidden');
+            }
+
+            themeToggle.on('click', function() {
+                html.toggleClass('dark');
+                sunIcon.toggleClass('hidden');
+                moonIcon.toggleClass('hidden');
+                localStorage.setItem('theme', html.hasClass('dark') ? 'dark' : 'light');
+            });
+
+            mobileMenuToggle.on('click', function() {
+                mobileMenu.toggleClass('active');
+            });
+
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
+            // Accordion
+            $('.accordion-header').on('click', function() {
+                const content = $(this).next('.accordion-content');
+                $('.accordion-content').not(content).removeClass('active');
+                content.toggleClass('active');
+            });
+
+            // Form submission
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
