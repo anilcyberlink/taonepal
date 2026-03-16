@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminars & Events - TAO Association of Nepal</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpeg" alt="TAO Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full">
+                    <span class="text-lg md:text-xl font-bold text-primary hidden md:inline">TAO Association of Nepal</span>
+                    <span class="text-lg font-bold text-primary md:hidden">TAN</span>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="locations.html" class="hover:text-primary transition-colors">Locations</a>
+                    <a href="seminars.html" class="text-primary font-semibold">Seminars</a>
+                    <a href="temples.html" class="hover:text-primary transition-colors">Temples</a>
+                    <a href="travel.html" class="hover:text-primary transition-colors">Travel</a>
+                    <a href="gurus.html" class="hover:text-primary transition-colors">Gurus</a>
+                    <a href="gallery.html" class="hover:text-primary transition-colors">Gallery</a>
+                    <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="donations.html" class="btn btn-secondary text-sm">Donate</a>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-muted hover:bg-border transition-colors">
+                        <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-muted">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu lg:hidden">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block py-2 hover:text-primary">Home</a>
+                <a href="about.html" class="block py-2 hover:text-primary">About</a>
+                <a href="locations.html" class="block py-2 hover:text-primary">Locations</a>
+                <a href="seminars.html" class="block py-2 text-primary font-semibold">Seminars</a>
+                <a href="temples.html" class="block py-2 hover:text-primary">Temples</a>
+                <a href="travel.html" class="block py-2 hover:text-primary">Travel</a>
+                <a href="gurus.html" class="block py-2 hover:text-primary">Gurus</a>
+                <a href="gallery.html" class="block py-2 hover:text-primary">Gallery</a>
+                <a href="blog.html" class="block py-2 hover:text-primary">Blog</a>
+                <a href="contact.html" class="block py-2 hover:text-primary">Contact</a>
+                <a href="donations.html" class="btn btn-secondary block text-center mt-4">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Seminars & Events</h1>
+            <p class="text-xl opacity-90">Join us for transformative learning experiences</p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <div class="flex justify-center gap-4 mb-12">
+            <button class="event-filter-btn btn btn-primary" data-filter="upcoming">Upcoming Events</button>
+            <button class="event-filter-btn btn btn-outline" data-filter="past">Past Events</button>
+        </div>
+
+        <div id="upcoming-events" class="events-section">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="card">
+                    <div class="badge badge-secondary mb-3">March 25, 2026</div>
+                    <h3 class="text-xl font-semibold mb-3">Introduction to Tao Te Ching</h3>
+                    <p class="text-muted-foreground mb-4">A comprehensive introduction to Lao Tzu's timeless classic and its relevance to modern life.</p>
+                    <div class="text-sm mb-2"><strong>Speaker:</strong> Master Chen Wei</div>
+                    <div class="text-sm mb-2"><strong>Location:</strong> Kathmandu Main Center</div>
+                    <div class="text-sm mb-4"><strong>Time:</strong> 2:00 PM - 5:00 PM</div>
+                    <a href="#registration-form" class="btn btn-primary w-full">Register Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="badge badge-secondary mb-3">April 8, 2026</div>
+                    <h3 class="text-xl font-semibold mb-3">Qi Gong for Healing</h3>
+                    <p class="text-muted-foreground mb-4">Learn ancient energy cultivation techniques for physical and spiritual wellness.</p>
+                    <div class="text-sm mb-2"><strong>Speaker:</strong> Master Liu Xiang</div>
+                    <div class="text-sm mb-2"><strong>Location:</strong> Pokhara Center</div>
+                    <div class="text-sm mb-4"><strong>Time:</strong> 9:00 AM - 12:00 PM</div>
+                    <a href="#registration-form" class="btn btn-primary w-full">Register Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="badge badge-secondary mb-3">April 22, 2026</div>
+                    <h3 class="text-xl font-semibold mb-3">Taoist Meditation Retreat</h3>
+                    <p class="text-muted-foreground mb-4">Three-day intensive meditation retreat in the peaceful mountains of Nepal.</p>
+                    <div class="text-sm mb-2"><strong>Speaker:</strong> Master Rajesh Thapa</div>
+                    <div class="text-sm mb-2"><strong>Location:</strong> Nagarkot Retreat Center</div>
+                    <div class="text-sm mb-4"><strong>Time:</strong> April 22-24, Full Day</div>
+                    <a href="#registration-form" class="btn btn-primary w-full">Register Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="badge badge-secondary mb-3">May 5, 2026</div>
+                    <h3 class="text-xl font-semibold mb-3">Feng Shui & Harmony</h3>
+                    <p class="text-muted-foreground mb-4">Understanding the art of harmonizing living spaces with natural energy flows.</p>
+                    <div class="text-sm mb-2"><strong>Speaker:</strong> Master Karma Dorje</div>
+                    <div class="text-sm mb-2"><strong>Location:</strong> Lalitpur Center</div>
+                    <div class="text-sm mb-4"><strong>Time:</strong> 1:00 PM - 4:00 PM</div>
+                    <a href="#registration-form" class="btn btn-primary w-full">Register Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="badge badge-secondary mb-3">May 18, 2026</div>
+                    <h3 class="text-xl font-semibold mb-3">Tai Chi Workshop</h3>
+                    <p class="text-muted-foreground mb-4">Learn the graceful movements of Tai Chi for health, balance, and inner peace.</p>
+                    <div class="text-sm mb-2"><strong>Speaker:</strong> Master Zhang Wei</div>
+                    <div class="text-sm mb-2"><strong>Location:</strong> Pokhara Lakeside</div>
+                    <div class="text-sm mb-4"><strong>Time:</strong> 6:00 AM - 8:00 AM</div>
+                    <a href="#registration-form" class="btn btn-primary w-full">Register Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="badge badge-secondary mb-3">June 1, 2026</div>
+                    <h3 class="text-xl font-semibold mb-3">Yin-Yang Philosophy</h3>
+                    <p class="text-muted-foreground mb-4">Deep dive into the principle of complementary opposites and universal balance.</p>
+                    <div class="text-sm mb-2"><strong>Speaker:</strong> Master Surya Thapa</div>
+                    <div class="text-sm mb-2"><strong>Location:</strong> Kathmandu Main Center</div>
+                    <div class="text-sm mb-4"><strong>Time:</strong> 3:00 PM - 6:00 PM</div>
+                    <a href="#registration-form" class="btn btn-primary w-full">Register Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="past-events" class="events-section hidden">
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">Spring Festival Celebration 2026</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-muted-foreground mb-3">March 5, 2026 | Kathmandu Main Center</p>
+                        <p class="mb-3">Over 300 practitioners gathered to celebrate the spring equinox with traditional rituals, meditation, and cultural performances. The event featured teachings from Master Surya Thapa on the significance of seasonal transitions in Taoist philosophy.</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <img src="https://placehold.co/200x150/2B4162/FFFFFF?text=Event+1" alt="Event" class="gallery-img rounded-lg cursor-pointer">
+                            <img src="https://placehold.co/200x150/B91C1C/FFFFFF?text=Event+2" alt="Event" class="gallery-img rounded-lg cursor-pointer">
+                            <img src="https://placehold.co/200x150/1E40AF/FFFFFF?text=Event+3" alt="Event" class="gallery-img rounded-lg cursor-pointer">
+                            <img src="https://placehold.co/200x150/2B4162/FFFFFF?text=Event+4" alt="Event" class="gallery-img rounded-lg cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">Meditation Mastery Series - Part 3</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-muted-foreground mb-3">February 15, 2026 | Pokhara Center</p>
+                        <p>The third installment of our popular meditation series focused on advanced techniques for inner stillness and spiritual awakening. Led by Master Liu Xiang, participants engaged in intensive practice sessions and one-on-one guidance.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">Taoist Calligraphy Workshop</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-muted-foreground mb-3">January 20, 2026 | Lalitpur Center</p>
+                        <p>Students learned the meditative art of Chinese calligraphy, creating beautiful characters while cultivating mindfulness and artistic expression. Master Chen Wei demonstrated traditional brush techniques.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="font-semibold">New Year Blessing Ceremony</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-muted-foreground mb-3">January 1, 2026 | All Centers</p>
+                        <p>Communities across all our Nepal branches came together for synchronized New Year ceremonies, setting intentions for growth and harmony in the year ahead.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-muted py-16" id="registration-form">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="card">
+                <h2 class="text-3xl font-bold text-primary mb-6 text-center">Event Registration</h2>
+                <form id="seminar-registration">
+                    <div class="mb-4">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="event">Select Event</label>
+                        <select id="event" name="event" required>
+                            <option value="">Choose an event...</option>
+                            <option value="tao-te-ching">Introduction to Tao Te Ching - March 25</option>
+                            <option value="qi-gong">Qi Gong for Healing - April 8</option>
+                            <option value="meditation-retreat">Taoist Meditation Retreat - April 22-24</option>
+                            <option value="feng-shui">Feng Shui & Harmony - May 5</option>
+                            <option value="tai-chi">Tai Chi Workshop - May 18</option>
+                            <option value="yin-yang">Yin-Yang Philosophy - June 1</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Submit Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <img src="" alt="Gallery">
+    </div>
+
+    <footer class="bg-card border-t border-border py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="logo.jpeg" alt="TAO Logo" class="h-10 w-10 rounded-full">
+                        <span class="font-bold text-primary">TAN</span>
+                    </div>
+                    <p class="text-muted-foreground text-sm">Cultivating wisdom and harmony through Taoist teachings in Nepal.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="locations.html" class="text-muted-foreground hover:text-primary">Our Locations</a></li>
+                        <li><a href="seminars.html" class="text-muted-foreground hover:text-primary">Events & Seminars</a></li>
+                        <li><a href="gurus.html" class="text-muted-foreground hover:text-primary">Our Teachers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="temples.html" class="text-muted-foreground hover:text-primary">Temple Projects</a></li>
+                        <li><a href="travel.html" class="text-muted-foreground hover:text-primary">Travel Programs</a></li>
+                        <li><a href="gallery.html" class="text-muted-foreground hover:text-primary">Gallery</a></li>
+                        <li><a href="blog.html" class="text-muted-foreground hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Contact</h4>
+                    <p class="text-sm text-muted-foreground mb-2">Sitapaila, Kathmandu, Nepal</p>
+                    <p class="text-sm text-muted-foreground mb-2">Phone: +977-1-4123456</p>
+                    <p class="text-sm text-muted-foreground mb-4">Email: info@taonepal.org</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light">
+                            <span class="text-sm">f</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white hover:bg-secondary-light">
+                            <span class="text-sm">Y</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white hover:opacity-80">
+                            <span class="text-sm">I</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-6 text-center text-sm text-muted-foreground">
+                <p class="mb-2">© 2025 TAO Association of Nepal. All Rights Reserved.</p>
+                <p class="text-xs">Non-profit spiritual organization registered in Nepal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            const html = $('html');
+            const themeToggle = $('#theme-toggle');
+            const sunIcon = $('.sun-icon');
+            const moonIcon = $('.moon-icon');
+            const mobileMenuToggle = $('#mobile-menu-toggle');
+            const mobileMenu = $('#mobile-menu');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                html.addClass('dark');
+                sunIcon.addClass('hidden');
+                moonIcon.removeClass('hidden');
+            }
+
+            themeToggle.on('click', function() {
+                html.toggleClass('dark');
+                sunIcon.toggleClass('hidden');
+                moonIcon.toggleClass('hidden');
+                localStorage.setItem('theme', html.hasClass('dark') ? 'dark' : 'light');
+            });
+
+            mobileMenuToggle.on('click', function() {
+                mobileMenu.toggleClass('active');
+            });
+
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
+            // Event filter
+            $('.event-filter-btn').on('click', function() {
+                const filter = $(this).data('filter');
+                $('.event-filter-btn').removeClass('btn-primary').addClass('btn-outline');
+                $(this).removeClass('btn-outline').addClass('btn-primary');
+
+                if (filter === 'upcoming') {
+                    $('#upcoming-events').removeClass('hidden');
+                    $('#past-events').addClass('hidden');
+                } else {
+                    $('#upcoming-events').addClass('hidden');
+                    $('#past-events').removeClass('hidden');
+                }
+            });
+
+            // Accordion
+            $('.accordion-header').on('click', function() {
+                const content = $(this).next('.accordion-content');
+                $('.accordion-content').not(content).removeClass('active');
+                content.toggleClass('active');
+            });
+
+            // Lightbox
+            $('.gallery-img').on('click', function() {
+                const src = $(this).attr('src');
+                $('#lightbox img').attr('src', src);
+                $('#lightbox').addClass('active');
+            });
+
+            $('.lightbox-close, #lightbox').on('click', function(e) {
+                if (e.target === this) {
+                    $('#lightbox').removeClass('active');
+                }
+            });
+
+            // Form submission
+            $('#seminar-registration').on('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for registering! We will contact you soon.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

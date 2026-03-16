@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Travel Programs - TAO Association of Nepal</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpeg" alt="TAO Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full">
+                    <span class="text-lg md:text-xl font-bold text-primary hidden md:inline">TAO Association of Nepal</span>
+                    <span class="text-lg font-bold text-primary md:hidden">TAN</span>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="locations.html" class="hover:text-primary transition-colors">Locations</a>
+                    <a href="seminars.html" class="hover:text-primary transition-colors">Seminars</a>
+                    <a href="temples.html" class="hover:text-primary transition-colors">Temples</a>
+                    <a href="travel.html" class="text-primary font-semibold">Travel</a>
+                    <a href="gurus.html" class="hover:text-primary transition-colors">Gurus</a>
+                    <a href="gallery.html" class="hover:text-primary transition-colors">Gallery</a>
+                    <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="donations.html" class="btn btn-secondary text-sm">Donate</a>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-muted hover:bg-border transition-colors">
+                        <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-md hover:bg-muted">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu lg:hidden">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block py-2 hover:text-primary">Home</a>
+                <a href="about.html" class="block py-2 hover:text-primary">About</a>
+                <a href="locations.html" class="block py-2 hover:text-primary">Locations</a>
+                <a href="seminars.html" class="block py-2 hover:text-primary">Seminars</a>
+                <a href="temples.html" class="block py-2 hover:text-primary">Temples</a>
+                <a href="travel.html" class="block py-2 text-primary font-semibold">Travel</a>
+                <a href="gurus.html" class="block py-2 hover:text-primary">Gurus</a>
+                <a href="gallery.html" class="block py-2 hover:text-primary">Gallery</a>
+                <a href="blog.html" class="block py-2 hover:text-primary">Blog</a>
+                <a href="contact.html" class="block py-2 hover:text-primary">Contact</a>
+                <a href="donations.html" class="btn btn-secondary block text-center mt-4">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Spiritual Travel Programs</h1>
+            <p class="text-xl opacity-90">Journey to sacred Taoist sites across Asia</p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Experience transformative pilgrimages to sacred Taoist sites in Thailand, India, and China. Our guided tours combine spiritual practice with cultural immersion and fellowship with like-minded seekers.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="card">
+                <div class="text-5xl text-center mb-4">🇹🇭</div>
+                <h2 class="text-2xl font-bold text-center mb-4">Thailand Pilgrimage</h2>
+                <img src="https://placehold.co/400x250/2B4162/FFFFFF?text=Thailand" alt="Thailand" class="w-full h-48 object-cover rounded-lg mb-4">
+                <p class="text-muted-foreground mb-4">
+                    Explore ancient Taoist temples in Bangkok, Chiang Mai, and Phuket. Visit meditation centers and meet Thai masters practicing the Way.
+                </p>
+                <div class="space-y-2 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Duration:</span>
+                        <span>10 Days / 9 Nights</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Cost:</span>
+                        <span>Rs. 1,25,000 per person</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Next Departure:</span>
+                        <span>June 15, 2026</span>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4">
+                    <div class="accordion-header">
+                        <span class="text-sm font-semibold">View Itinerary</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="text-sm space-y-2 text-muted-foreground">
+                            <li>• Day 1-2: Bangkok temples and meditation</li>
+                            <li>• Day 3-5: Chiang Mai mountain retreats</li>
+                            <li>• Day 6-8: Phuket seaside practices</li>
+                            <li>• Day 9: Cultural exchange and sharing</li>
+                            <li>• Day 10: Return journey</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary w-full register-interest-btn">Register Interest</button>
+            </div>
+
+            <div class="card">
+                <div class="text-5xl text-center mb-4">🇮🇳</div>
+                <h2 class="text-2xl font-bold text-center mb-4">India Spiritual Tour</h2>
+                <img src="https://placehold.co/400x250/B91C1C/FFFFFF?text=India" alt="India" class="w-full h-48 object-cover rounded-lg mb-4">
+                <p class="text-muted-foreground mb-4">
+                    Visit sacred sites across North India including Varanasi, Rishikesh, and Buddhist-Taoist heritage centers in the Himalayan foothills.
+                </p>
+                <div class="space-y-2 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Duration:</span>
+                        <span>12 Days / 11 Nights</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Cost:</span>
+                        <span>Rs. 95,000 per person</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Next Departure:</span>
+                        <span>July 10, 2026</span>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4">
+                    <div class="accordion-header">
+                        <span class="text-sm font-semibold">View Itinerary</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="text-sm space-y-2 text-muted-foreground">
+                            <li>• Day 1-3: Delhi spiritual heritage sites</li>
+                            <li>• Day 4-6: Rishikesh yoga and meditation</li>
+                            <li>• Day 7-9: Varanasi Ganges ceremonies</li>
+                            <li>• Day 10-11: Himalayan ashram retreat</li>
+                            <li>• Day 12: Return journey</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary w-full register-interest-btn">Register Interest</button>
+            </div>
+
+            <div class="card">
+                <div class="text-5xl text-center mb-4">🇨🇳</div>
+                <h2 class="text-2xl font-bold text-center mb-4">China Sacred Mountains</h2>
+                <img src="https://placehold.co/400x250/1E40AF/FFFFFF?text=China" alt="China" class="w-full h-48 object-cover rounded-lg mb-4">
+                <p class="text-muted-foreground mb-4">
+                    Ultimate pilgrimage to Wudang Mountains, Huashan, and ancient Taoist temples. Train with authentic masters in the birthplace of Taoism.
+                </p>
+                <div class="space-y-2 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Duration:</span>
+                        <span>14 Days / 13 Nights</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Cost:</span>
+                        <span>Rs. 1,85,000 per person</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="font-semibold">Next Departure:</span>
+                        <span>September 20, 2026</span>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4">
+                    <div class="accordion-header">
+                        <span class="text-sm font-semibold">View Itinerary</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="text-sm space-y-2 text-muted-foreground">
+                            <li>• Day 1-2: Beijing historical temples</li>
+                            <li>• Day 3-7: Wudang Mountains intensive training</li>
+                            <li>• Day 8-10: Huashan pilgrimage</li>
+                            <li>• Day 11-12: Xi'an ancient sites</li>
+                            <li>• Day 13-14: Return journey</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary w-full register-interest-btn">Register Interest</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-muted py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Travel Photo Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://placehold.co/300x300/2B4162/FFFFFF?text=Photo+1" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/B91C1C/FFFFFF?text=Photo+2" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/1E40AF/FFFFFF?text=Photo+3" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/2B4162/FFFFFF?text=Photo+4" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/B91C1C/FFFFFF?text=Photo+5" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/1E40AF/FFFFFF?text=Photo+6" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/2B4162/FFFFFF?text=Photo+7" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+                <img src="https://placehold.co/300x300/B91C1C/FFFFFF?text=Photo+8" alt="Travel" class="gallery-img w-full h-48 object-cover rounded-lg cursor-pointer">
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <img src="" alt="Gallery">
+    </div>
+
+    <div id="interest-modal" class="lightbox">
+        <div class="bg-card rounded-lg p-8 max-w-md w-full mx-4">
+            <h3 class="text-2xl font-bold text-primary mb-4">Register Your Interest</h3>
+            <form id="interest-form">
+                <div class="mb-4">
+                    <label for="interest-name">Full Name</label>
+                    <input type="text" id="interest-name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="interest-email">Email</label>
+                    <input type="email" id="interest-email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="interest-phone">Phone</label>
+                    <input type="tel" id="interest-phone" required>
+                </div>
+                <div class="mb-6">
+                    <label for="interest-program">Program</label>
+                    <select id="interest-program" required>
+                        <option value="">Choose a program...</option>
+                        <option value="thailand">Thailand Pilgrimage</option>
+                        <option value="india">India Spiritual Tour</option>
+                        <option value="china">China Sacred Mountains</option>
+                    </select>
+                </div>
+                <div class="flex gap-3">
+                    <button type="button" class="btn btn-outline flex-1 close-modal-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary flex-1">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-card border-t border-border py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="logo.jpeg" alt="TAO Logo" class="h-10 w-10 rounded-full">
+                        <span class="font-bold text-primary">TAN</span>
+                    </div>
+                    <p class="text-muted-foreground text-sm">Cultivating wisdom and harmony through Taoist teachings in Nepal.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="locations.html" class="text-muted-foreground hover:text-primary">Our Locations</a></li>
+                        <li><a href="seminars.html" class="text-muted-foreground hover:text-primary">Events & Seminars</a></li>
+                        <li><a href="gurus.html" class="text-muted-foreground hover:text-primary">Our Teachers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="temples.html" class="text-muted-foreground hover:text-primary">Temple Projects</a></li>
+                        <li><a href="travel.html" class="text-muted-foreground hover:text-primary">Travel Programs</a></li>
+                        <li><a href="gallery.html" class="text-muted-foreground hover:text-primary">Gallery</a></li>
+                        <li><a href="blog.html" class="text-muted-foreground hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Contact</h4>
+                    <p class="text-sm text-muted-foreground mb-2">Sitapaila, Kathmandu, Nepal</p>
+                    <p class="text-sm text-muted-foreground mb-2">Phone: +977-1-4123456</p>
+                    <p class="text-sm text-muted-foreground mb-4">Email: info@taonepal.org</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light">
+                            <span class="text-sm">f</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white hover:bg-secondary-light">
+                            <span class="text-sm">Y</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white hover:opacity-80">
+                            <span class="text-sm">I</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-6 text-center text-sm text-muted-foreground">
+                <p class="mb-2">© 2025 TAO Association of Nepal. All Rights Reserved.</p>
+                <p class="text-xs">Non-profit spiritual organization registered in Nepal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            const html = $('html');
+            const themeToggle = $('#theme-toggle');
+            const sunIcon = $('.sun-icon');
+            const moonIcon = $('.moon-icon');
+            const mobileMenuToggle = $('#mobile-menu-toggle');
+            const mobileMenu = $('#mobile-menu');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                html.addClass('dark');
+                sunIcon.addClass('hidden');
+                moonIcon.removeClass('hidden');
+            }
+
+            themeToggle.on('click', function() {
+                html.toggleClass('dark');
+                sunIcon.toggleClass('hidden');
+                moonIcon.toggleClass('hidden');
+                localStorage.setItem('theme', html.hasClass('dark') ? 'dark' : 'light');
+            });
+
+            mobileMenuToggle.on('click', function() {
+                mobileMenu.toggleClass('active');
+            });
+
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+
+            // Accordion
+            $('.accordion-header').on('click', function() {
+                const content = $(this).next('.accordion-content');
+                $('.accordion-content').not(content).removeClass('active');
+                content.toggleClass('active');
+            });
+
+            // Lightbox
+            $('.gallery-img').on('click', function() {
+                const src = $(this).attr('src');
+                $('#lightbox img').attr('src', src);
+                $('#lightbox').addClass('active');
+            });
+
+            $('.lightbox-close, #lightbox').on('click', function(e) {
+                if (e.target === this) {
+                    $('#lightbox').removeClass('active');
+                }
+            });
+
+            // Interest modal
+            $('.register-interest-btn').on('click', function() {
+                $('#interest-modal').addClass('active');
+            });
+
+            $('.close-modal-btn').on('click', function() {
+                $('#interest-modal').removeClass('active');
+            });
+
+            $('#interest-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your interest! We will contact you soon.');
+                $('#interest-modal').removeClass('active');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
