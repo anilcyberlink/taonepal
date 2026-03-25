@@ -1,0 +1,72 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+
+/*** new css***/
+/* Scrolled state — dynamic class toggled via JS */
+nav.scrolled {
+    background-color: color-mix(in srgb, var(--background) 95%, transparent);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--border);
+}
+nav:not(.scrolled) {
+    background-color: color-mix(in srgb, var(--background) 90%, transparent);
+    backdrop-filter: blur(4px);
+}
+
+.nav-group:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+.submenu {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+.footer-link {
+    color: var(--footer-text);
+    opacity: 0.7;
+    transition: color 0.2s, opacity 0.2s;
+    text-decoration: none;
+}
+.footer-link:hover {
+    color: var(--footer-heading);
+    opacity: 1;
+}
+
+.footer-social {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    background-color: rgba(245, 230, 211, 0.1);
+    color: var(--footer-text);
+    transition: background-color 0.2s;
+    display: inline-flex;
+}
+.footer-social:hover {
+    background-color: var(--accent);
+}
+
+
+/**** about ***/
+.ornament {
+    display: flex; align-items: center; gap: 1rem;
+    color: var(--gold);
+}
+.ornament::before, .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}

@@ -1,0 +1,105 @@
+:root {
+    /* Light Mode */
+    --background: #F8FAFC;
+    --foreground: #0F172A;
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+    --primary: #1b2955;
+    --primary-foreground: #FFFFFF;
+    --secondary: #1E3A8A;
+    --secondary-foreground: #FFFFFF;
+    --accent: #38BDF8;
+    --accent-foreground: #0F172A;
+    --muted: #E2E8F0;
+    --muted-foreground: #475569;
+    --border: #CBD5E1;
+    --input: #FFFFFF;
+    --ring: #1E40AF;
+    --destructive: #DC2626;
+    --destructive-foreground: #FFFFFF;
+    
+    /* Additional color variables */
+    --primary-light: #3B82F6;
+    --primary-dark: #1E3A8A;
+    --secondary-light: #0EA5E9;
+    --secondary-dark: #0C4A6E;
+    --accent-light: #7DD3FC;
+    --accent-dark: #0369A1;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --info: #06B6D4;
+    
+    /* Chart colors */
+    --chart-1: #1E40AF;
+    --chart-2: #0EA5E9;
+    --chart-3: #06B6D4;
+    --chart-4: #3B82F6;
+    --chart-5: #60A5FA;
+    
+    /* Footer colors */
+    --footer-bg-from: #1E293B;
+    --footer-bg-to: #0F172A;
+    --footer-text: #F1F5F9;
+    --footer-heading: #38BDF8;
+    --footer-border-top: #1E40AF;
+    
+    --radius: 0.5rem;
+
+    /* Text colors */
+    --gold:       #d6a21f;
+    --gold-light: #EBC97A;
+    --crimson:    #C41E1E;
+    --navy:       #1E2D6B;
+}
+
+.dark {
+    /* Dark Mode - Deep Blue Tones */
+    --background: #0F172A;
+    --foreground: #F1F5F9;
+    --card: #1E293B;
+    --card-foreground: #F1F5F9;
+    --primary: #38BDF8;
+    --primary-foreground: #0F172A;
+    --secondary: #7DD3FC;
+    --secondary-foreground: #0F172A;
+    --accent: #06B6D4;
+    --accent-foreground: #0F172A;
+    --muted: #334155;
+    --muted-foreground: #CBD5E1;
+    --border: #1E293B;
+    --input: #1E293B;
+    --ring: #38BDF8;
+    --destructive: #EF4444;
+    --destructive-foreground: #0F172A;
+    
+    /* Additional color variables */
+    --primary-light: #60A5FA;
+    --primary-dark: #0EA5E9;
+    --secondary-light: #38BDF8;
+    --secondary-dark: #0284C7;
+    --accent-light: #22D3EE;
+    --accent-dark: #0891B2;
+    --success: #34D399;
+    --warning: #FBBF24;
+    --info: #22D3EE;
+    
+    /* Chart colors */
+    --chart-1: #38BDF8;
+    --chart-2: #0EA5E9;
+    --chart-3: #06B6D4;
+    --chart-4: #60A5FA;
+    --chart-5: #7DD3FC;
+    
+    /* Footer colors */
+    --footer-bg-from: #1E293B;
+    --footer-bg-to: #0F172A;
+    --footer-text: #E2E8F0;
+    --footer-heading: #38BDF8;
+    --footer-border-top: #38BDF8;
+
+    /* Text colors */
+    --gold:       #E0A830;
+    --gold-light: #F0CC7A;
+    --crimson:    #E85D5D;
+    --navy:       #4A6CF7;
+}
