@@ -5,6 +5,16 @@
 
 <div class="py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <div class="ornament mb-4">
+                <span class="font-display text-xs tracking-[0.3em] text-gold uppercase">
+                    Tao Pilgrimage
+                </span>
+            </div>
+            <h2 class="font-serif text-primary font-bold text-4xl mb-4">
+                Sacred Temple Tours
+            </h2>
+        </div>
         <div class="max-w-6xl mx-auto px-6">
             <div class="space-y-12">
                 <div class="bg-card border border-border rounded-[2px] overflow-hidden transitiona-all duration-300 ease-in-out shadow-sm hover:shadow-2xl overflow-hidden">
