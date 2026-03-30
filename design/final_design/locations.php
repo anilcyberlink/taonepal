@@ -13,7 +13,7 @@
     </div>
     <div class="grid lg:grid-cols-2 gap-8">
       <!-- Kathmandu HQ -->
-      <a href="location-details.php" class="bg-card border border-border rounded-[2px] overflow-hidden transition-transform transition-shadow duration-300 ease-in-out shadow-sm hover:-translate-y-1 hover:shadow-lg overflow-hidden">
+      <a href="location-details.php" class="bg-card border border-border rounded-[2px] transition-transform transition-shadow duration-300 ease-in-out shadow-sm hover:-translate-y-1 hover:shadow-lg overflow-hidden">
         <!-- <img src="/images/branch_1.jpg" class="w-full h-48 object-cover" /> -->
         <div class="p-6">
           <div class="flex items-center gap-2 mb-2">
