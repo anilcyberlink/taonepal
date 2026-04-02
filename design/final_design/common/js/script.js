@@ -38,3 +38,17 @@ function showTab(name) {
     document.getElementById('tab-' + name).classList.remove('hidden');
     document.querySelector('[data-tab="' + name + '"]').classList.add('active');
 }
+
+// Gallery tab selector
+function setTab(tab) {
+    document.querySelectorAll('.tabs').forEach(t => {
+        t.classList.remove('active');
+    });
+
+    document.getElementById('tab-' + tab).classList.add('active');
+
+    document.querySelectorAll('.photo-item').forEach(item => {
+        const cat = item.getAttribute('data-category');
+        item.style.display = (tab === 'all' || cat === tab) ? '' : 'none';
+    });
+}
