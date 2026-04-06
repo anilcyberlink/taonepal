@@ -1,158 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="keywords" content="@yield('meta_keyword') - {{$setting->meta_key}}">
-    <meta name="description" content="@yield('meta_description') -{{$setting->meta_description}}">
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="@yield('title')"/>
-    <meta property="og:url" content="{{url()->current()}}"/>
-    <meta property="og:site_name" content="{{$setting->site_name}}"/>
-    <meta property="og:description" content="@yield('meta_description')"/>
-    <title>{{$setting->site_name}}</title>
-    @if (trim($__env->yieldContent('thumbnail')))
-        <meta property="og:image"
-              content="{{ asset( env('PUBLIC_PATH') . 'uploads/original/' ) }}/@yield('thumbnail')"/>
-    @else
-        <meta property="og:image" content="{{asset(env('PUBLIC_PATH').'/images')}}/logo/logo-dark.png"/>
-    @endif
-    <meta property="og:image:width" content="1000"/>
-    <meta property="og:image:height" content="600"/>
-    <meta name="twitter:image" content="{{ asset( env('PUBLIC_PATH') . 'uploads/original/' ) }}/@yield('thumbnail')"/>
-    <meta name="twitter:url" content="{{url()->current()}}">
-    <meta name="twitter:title" content="@yield('title')">
-    <meta name="twitter:description" content="@yield('meta_description')">
-    <meta name="twitter:card" content="summary_large_image"/>
-    <link rel="icon" href="{{asset('images/favicon/favicon.png')}}" type="image/png">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;family=Roboto:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="{{asset('use.fontawesome.com/releases/v5.15.3/css/all.css')}}">
-    @yield('new_css')
-    <link rel="stylesheet" href="{{asset('css/libraries.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <!-- Messenger Chat Plugin Code -->
-    <div id="fb-root"></div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAO Association of Nepal (TAN)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap"
+        rel="stylesheet" />
 
-    <!-- Your Chat Plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="{{ asset('themes-assets/css/globals.css') }}" />
+    <link rel="stylesheet" href="{{ asset('themes-assets/css/styles.css') }}" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "107576118185414");
-      chatbox.setAttribute("attribution", "biz_inbox");
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background:         'var(--background)',
+                        foreground:         'var(--foreground)',
+                        card:               'var(--card)',
+                        'card-foreground':  'var(--card-foreground)',
+                        primary:            'var(--primary)',
+                        'primary-foreground': 'var(--primary-foreground)',
+                        secondary:          'var(--secondary)',
+                        'secondary-foreground': 'var(--secondary-foreground)',
+                        muted:              'var(--muted)',
+                        'muted-foreground': 'var(--muted-foreground)',
+                        accent:             'var(--accent)',
+                        'accent-foreground': 'var(--accent-foreground)',
+                        destructive:        'var(--destructive)',
+                        border:             'var(--border)',
+                        input:              'var(--input)',
+                        ring:               'var(--ring)',
+                        gold:               'var(--gold)',
+                        'gold-light':       'var(--gold-light)',
+                        crimson:            'var(--crimson)',
+                        navy:               'var(--navy)',
+                    },
+                    fontFamily: {
+                        display: ['Cinzel', 'serif'],
+                        body: ['Cormorant Garamond', 'serif'],
+                        deva: ['Noto Sans Devanagari', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease forwards',
+                        'slide-up': 'slideUp 0.7s ease forwards',
+                        'slide-in-left': 'slideInLeft 0.7s ease forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+                        slideUp: { '0%': { opacity: 0, transform: 'translateY(30px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+                        slideInLeft: { '0%': { opacity: 0, transform: 'translateX(-30px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+                        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+                    },
+                    backgroundColor: {
+                        'primary-mixed': 'color-mix(in srgb, var(--primary) 5%, transparent)',
+                        'primary-mixed-10': 'color-mix(in srgb, var(--primary) 10%, transparent)',
+                        'accent-mixed-10': 'color-mix(in srgb, var(--accent) 10%, transparent)',
+                        'secondary-mixed': 'color-mix(in srgb, var(--secondary) 5%, transparent)',
+                    },
+                    backgroundImage: {
+                        'hero-background': 'linear-gradient(to bottom, color-mix(in srgb, var(--primary) 10%, transparent), color-mix(in srgb, var(--accent) 5%, transparent))',
+                        'primary-accent-gradient': 'linear-gradient(to right, var(--primary), var(--accent), var(--primary))',
+                        'primary-transparent-gradient': 'linear-gradient(to bottom, var(--primary), transparent)',
+                    }
+                }
+            }
+        };
     </script>
 
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v12.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
 </head>
 
-<body>
+<body class="font-sans antialiased">
+    <div class="flex flex-col min-h-screen">
+        <nav id="navbar" class="sticky top-0 z-50 w-full transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 md:h-20">
 
-<div class="wrapper">
-    <div class="preloader">
-        <div class="loading"><span></span><span></span><span></span><span></span></div>
-    </div>
-    <!-- /.preloader -->
+                    <!-- Logo -->
+                    <a href="/" class="flex items-center gap-2 flex-shrink-0">
+                        <!-- Mobile Logo -->
+                        <div class="md:hidden w-10 h-10">
+                            <img src="{{ asset('themes-assets/images/logo.png') }}" alt="TAO Logo" width="40" height="40" class="w-full h-full" />
+                        </div>
+                        <!-- Desktop Logo -->
+                        <div class="hidden md:block h-16">
+                            <img src="{{ asset('themes-assets/images/logo-full.jpeg') }}" alt="TAO Association of Nepal" height="64" width="300"
+                                class="h-full w-auto" />
+                        </div>
+                    </a>
 
-    <!-- =========================
-        Header
-    =========================== -->
-    <header class="header header-layout3">
-        <div class="header-topbar">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-12">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <ul class="contact__list d-flex flex-wrap align-items-center list-unstyled mb-0">
-                                <li>
-                                    <i class="icon-phone"></i><a href="tel: {{$setting->phone}}">Emergency Line:
-                                        {{$setting->phone}}
-                                    </a>
-                                </li>
-                                <li><i class="icon-location"></i><a href="{{route('page.posttype','contact-us')}}">Location:{{$setting->location1}} </a>
-                                </li>
-                                <li><i class="icon-clock"></i><a href="{{route('page.posttype','contact-us')}}">{{$setting->welcome_title}}</a>
-                                </li>
-                            </ul><!-- /.contact__list -->
-                            <div class="d-flex">
-                            <ul class="social-icons list-unstyled mb-0 mr-30">
-                                <li><a href="{{$setting->facebook_link}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="{{$setting->instagram_link}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="{{$setting->twitter_link}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            </ul><!-- /.social-icons -->
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center gap-1 flex-1 ml-12">
 
+                        <a href="/"
+                            class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Home</a>
+                        <a href="/about.php"
+                            class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">About</a>
+
+                        <!-- Programs with submenu -->
+                        <div class="relative nav-group">
+                            <a href="#" class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Programs</a>
+                            <div
+                                class="submenu absolute left-0 top-full mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
+                                <a href="/seminars.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Seminars &amp; Events</a>
+                                <a href="/travel.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Travel Programs</a>
+                                <a href="/temples.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Temples</a>
                             </div>
                         </div>
-                    </div><!-- /.col-12 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.header-top -->
-        <nav class="navbar navbar-expand-lg sticky-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('images/logo/logo-dark.png')}}" class="logo-dark" alt="logo">
-                </a>
-                <button class="navbar-toggler" type="button">
-                    <span class="menu-lines"><span></span></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mainNavigation">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav__item">
-                            <a href="{{url('/')}}" class="nav__item-link">Home</a>
-                        </li>
-                        <?php /* ?>
-                      <li class="nav__item has-dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Hospital</a>
-                        <ul class="dropdown-menu">
-                          <li class="nav__item">
-                            <a href="about-us.php" class="nav__item-link">About Hospital</a>
-                          </li><!-- /.nav-item -->
 
-                           <li class="nav__item">
-                            <a href="team.php" class="nav__item-link">Leadership Team</a>
-                          </li><!-- /.nav-item -->
-                           <li class="nav__item">
-                            <a href="team.php" class="nav__item-link">Management Team</a>
-                          </li><!-- /.nav-item -->
+                        <a href="/locations.php"
+                            class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Locations</a>
+                        <a href="/gurus.php"
+                            class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Gurus</a>
+                        <a href="/gallery.php"
+                            class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Gallery</a>
+                        <a href="/contact.php"
+                            class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Contact</a>
 
-                        </ul><!-- /.dropdown-menu -->
-                      </li><!-- /.nav-item -->
-                      <?php */?>
-                        @if ($navigations->count())
-                            @foreach ($navigations as $row)
-                                <li class="nav__item">
-                                    <a href="{{ url('page/' . posttype_url($row->uri)) }}"class="nav__item-link">{{ $row->post_type }}</a>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul><!-- /.navbar-nav -->
-                    <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
-                </div><!-- /.navbar-collapse -->
-                <!--<div class="d-none d-xl-flex align-items-center position-relative ml-30">-->
-                <!--    <a href="{{route('appointment')}}" class="btn btn__primary btn__rounded ml-30">-->
-                <!--        <i class="icon-calendar"></i>-->
-                <!--        <span>Appointment</span>-->
-                <!--    </a>-->
-                <!--</div>-->
-            </div><!-- /.container -->
-        </nav><!-- /.navabr -->
-    </header>
-    <!-- /.Header -->
+                    </div>
+
+                    <!-- Right Actions -->
+                    <div class="flex items-center gap-2 md:gap-4">
+
+                        <!-- Search -->
+                        <a href="/search">
+                            <button
+                                class="h-10 w-10 flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:!text-background transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search">
+                                    <path d="m21 21-4.34-4.34"/>
+                                    <circle cx="11" cy="11" r="8"/>
+                                </svg>
+                                <span class="sr-only">Search</span>
+                            </button>
+                        </a>
+
+                        <!-- Dark Mode Toggle -->
+                        <button id="theme-toggle" class="h-9 w-9 flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:!text-background transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon lucide-moon">
+                                <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun">
+                                <circle cx="12" cy="12" r="4"/>
+                                <path d="M12 2v2"/>
+                                <path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/>
+                                <path d="m17.66 17.66 1.41 1.41"/>
+                                <path d="M2 12h2"/>
+                                <path d="M20 12h2"/>
+                                <path d="m6.34 17.66-1.41 1.41"/>
+                                <path d="m19.07 4.93-1.41 1.41"/>
+                            </svg>
+                            <span class="sr-only">Toggle theme</span>
+                        </button>
+
+                        <!-- Donate Button -->
+                        <a href="/donations.php" class="hidden sm:flex">
+                            <button class="flex items-center gap-2 bg-primary dark:hover:text-background text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+                                </svg>
+                                <span class="hidden md:inline">Donate</span>
+                            </button>
+                        </a>
+
+                        <!-- Mobile Menu Toggle -->
+                        <button id="mobile-menu-btn"
+                            class="md:hidden h-10 w-10 flex items-center justify-center rounded-md hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu">
+                                <path d="M4 5h16"/>
+                                <path d="M4 12h16"/>
+                                <path d="M4 19h16"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                                <path d="M18 6 6 18"/>
+                                <path d="m6 6 12 12"/>
+                            </svg>
+                            <span class="sr-only">Open menu</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white px-4 pb-6">
+                <div class="flex flex-col gap-4 mt-8">
+
+                    <a href="/" class="text-gray-900 hover:text-violet-600 font-medium">Home</a>
+                    <a href="/about.php" class="text-gray-900 hover:text-violet-600 font-medium">About</a>
+
+                    <!-- Programs submenu (expanded in mobile) -->
+                    <div>
+                        <p class="font-semibold text-gray-900 mb-2">Programs</p>
+                        <div class="pl-4 space-y-2">
+                            <a href="/seminars" class="block text-sm text-gray-500 hover:text-violet-600">Seminars &amp; Events</a>
+                            <a href="/travel" class="block text-sm text-gray-500 hover:text-violet-600">Travel Programs</a>
+                            <a href="/temples" class="block text-sm text-gray-500 hover:text-violet-600">Temples</a>
+                        </div>
+                    </div>
+
+                    <a href="/locations.php" class="text-gray-900 hover:text-violet-600 font-medium">Locations</a>
+                    <a href="/gurus.php" class="text-gray-900 hover:text-violet-600 font-medium">Gurus</a>
+                    <a href="/gallery.php" class="text-gray-900 hover:text-violet-600 font-medium">Gallery</a>
+                    <a href="/contact.php" class="text-gray-900 hover:text-violet-600 font-medium">Contact</a>
+
+                    <a href="/donations.php" class="mt-4">
+                        <button
+                            class="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+                            </svg>
+                            Donate
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-1">
