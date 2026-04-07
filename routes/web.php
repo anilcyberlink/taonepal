@@ -69,12 +69,8 @@ Route::get('/dwn/dwnform/{key_string}', 'FrontendControllers\NewsletterSignupCon
 
 Route::get('page/photogallery/{category_id}', 'FrontendControllers\FrontpageController@photo_gallery');
 
-// Send Mail
-Route::post('page/contact/sendmail', 'FrontendControllers\FrontpageController@sendmail')->name('sendmail');
-Route::post('page/contact/contact-sendmail', 'FrontendControllers\FrontpageController@sendmail_contact')->name('sendmail_contact');
-Route::post('page/order/sendorder', 'FrontendControllers\FrontpageController@sendorder')->name('sendorder');
-Route::post('page/career/sendresume', 'FrontendControllers\FrontpageController@sendresume')->name('sendresume');
-Route::get('category/{uri}', 'FrontendControllers\FrontpageController@category_navigation')->name('category.navigation');
+// Send Forms and Mail
+Route::post('page/post-contact', 'FrontendControllers\FrontpageController@sendmail_contact')->name('sendmail_contact');
 
 //=========================================== Backend Routes =======================================================//
 Route::middleware(['auth'])->group(function () {

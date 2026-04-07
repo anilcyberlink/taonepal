@@ -49,6 +49,8 @@ class FrontpageController extends Controller
         $media = PostModel::where(['post_type' => '30', 'show_in_home' => '1', 'status' => '1'])->take(3)->get();
         $about = PostTypeModel::where('id', 27)->first();
         $whyus = AssociatedPostModel::where(['post_id' => '148'])->get();
+        $setting =SettingModel::where(['id'=>'1'])->first();
+        // dd($setting);
 
         return view('themes.default.frontpage', compact('whyus', 'service', 'media', 'about', 'banner', 'services', 'news'));
     }
@@ -58,104 +60,14 @@ class FrontpageController extends Controller
         if (!check_posttype_uri($uri)) {
             abort(404);
         }
-        $data = PostTypeModel::where('uri', $uri)->first();
+        $data = PostTypeModel::where('uri', $uri)->firstOrFail();
 
-        $tmpl['template'] = 'page';
+        $template = !empty($data->template) ? $data->template : 'page';
 
-        // dump($data);
-        if ($data) {
-            if ($data['template'] == 'posttypeTemplate-service') {
-                $posts = [];
-                $majorServices = PostModel::where('post_type', $data->id)->where('post_category', 19)->orderBy('id')->where('status', '1')->get();
-                $medicalServices = PostModel::where('post_type', $data->id)->where('post_category', 18)->orderBy('id')->where('status', '1')->get();
-                $bloodRelatedTreatments = PostModel::where('post_type', $data->id)->where('post_category', 20)->orderBy('id')->where('status', '1')->get();
-                $bloodRelatedConditions = PostCategoryModel::where('post_type', $data->id)->where('id', 21)->orderBy('id')->first();
-                $medicalService = PostCategoryModel::where('post_type', $data->id)->where('id', 18)->first();
-                $who_we_are = [];
-                $objective = [];
-                $ourObjectives = [];
-                $carefortheHealth = [];
-                $carehealths = [];
-                $strength = [];
-                $ourStrengths =[];
-                $statistics  =[];
-                // $bloodRelated=PostCategoryModel::where('post_type',$data->id)->where('id',18)->first();
-            } elseif ($data['template'] == 'posttypeTemplate-about') {
-                $majorServices = [];
-                $medicalServices = [];
-                $bloodRelatedTreatments = [];
-                $bloodRelatedConditions = [];
-                $medicalService = [];
-                $posts = [];
-                $who_we_are = PostCategoryModel::where('post_type', $data->id)->where('id', 23)->orderBy('id')->where('status', '1')->first();
-                $objective = PostCategoryModel::where('post_type', $data->id)->where('id', 24)->orderBy('id')->where('status', '1')->first();
-                // dump($objective);
-                $ourObjectives = PostModel::where('post_type', $data->id)->where('post_category', 24)->orderBy('id')->where('status', '1')->get();
-                // dump($ourObjectives);
-                $carefortheHealth = PostCategoryModel::where('post_type', $data->id)->where('id', 25)->orderBy('id')->where('status', '1')->first();
-
-                $carehealths = PostModel::where('post_type', $data->id)->where('post_category', 25)->orderBy('id')->where('status', '1')->get();
-                $strength = PostCategoryModel::where('post_type', $data->id)->where('id', 26)->orderBy('id')->where('status', '1')->first();
-                $ourStrengths = PostModel::where('post_type', $data->id)->where('post_category', 26)->orderBy('id')->where('status', '1')->get();
-                $statistics = PostModel::where('post_type', $data->id)->where('post_category', 27)->orderBy('id')->where('status', '1')->get();
-                // dump($carehealths);
-                // $who_we_are=PostCategoryModel::where('post_type',$data->id)->where('id',23)->orderBy('id')->where('status', '1')->first();
-            } else {
-                $majorServices = [];
-                $medicalServices = [];
-                $bloodRelatedTreatments = [];
-                $bloodRelatedConditions = [];
-                $medicalService = [];
-                $who_we_are = [];
-                $objective = [];
-                $ourObjectives = [];
-                $carefortheHealth = [];
-                $carehealths = [];
-                $strength = [];
-                $ourStrengths =[];
-                $statistics  =[];
-                $posts = PostModel::where('post_type', $data->id)->where('status', '1')->orderBy('post_order', 'asc')->paginate(12);
-            }
-        }
-        // die;
-        // dump($posts);
-        // <!-- dump($posts); -->
-        $country = CountryModel::all();
-        $related = AssociatedPostModel::where('post_id', 114)->get();
-        $category = PostCategoryModel::where('post_type', 26)->get();
-
-        if ($request->ajax()) {
-            if ($request->has('value')) {
-                $result = PostModel::where('post_category', $request->value)->get();
-            }
-            return view('themes.default.doctor-filter', compact('result'));
-        }
-        $doctor = PostTypeModel::where('id', 29)->first();
-        $service_uri = PostTypeModel::where('id', 28)->first();
-        $documents = PostDocModel::where('post_id', $data['id'])->orderBy('ordering', 'desc')->get();
-        return view('themes.default.' . $data['template'] . '', compact(
-            'service_uri',
-            'objective',
-            'ourObjectives',
-            'carefortheHealth',
-            'carehealths',
-            'who_we_are',
-            'doctor',
-            'strength',
-            'ourStrengths',
-            'statistics',
-            'majorServices',
-            'medicalServices',
-            'bloodRelatedTreatments',
-            'bloodRelatedConditions',
-            'category',
-            'data',
-            'documents',
-            'posts',
-            'country',
-            'related',
-            'medicalService'
-        ));
+        $posts = PostModel::where(['post_type' => $data->id, 'status' => '1', 'post_parent' => '0'])->orderBy('post_order', 'asc')->paginate(16);
+        // dd($data,$posts);
+        
+        return view('themes.default.' . $template, compact('data', 'posts'));
     }
 
     public function pagedetail($uri)
@@ -302,15 +214,34 @@ class FrontpageController extends Controller
 
     public function sendmail_contact(Request $request)
     {
-        $return = $this->getCaptcha($request['g_recaptcha_response']);
-        $data = SettingModel::where('id', 1)->first();
-        $data->num_of_inquiries = $data->num_of_inquiries + 1;
-        $data->save();
-        if ($return->success == true && $return->score > 0.5) {
-            Mail::to($data->email_primary)->send(new SendMailContact());
-            return redirect()->back()->with('message', 'Contact message successfully sent.');
+        $g_recaptcha_response = $request->input('g_recaptcha_response');
+        $result = $this->getCaptcha($g_recaptcha_response);
+        if ($result->success == true) {
+            dd($request->all());
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required',
+                'message' => 'required',
+                'subject' => 'required',
+            ]);
+
+            if ($request->isMethod('post')) {
+
+                $data = Contact::create([
+                    'first_name' => $request->name,
+                    'email' => $request->email,
+                    'number' => $request->phone,
+                    'company' => $request->subject,
+                    'comments' => $request->message
+                ]);
+
+                // return new \App\Mail\AdminContactMail($request->email);
+                // Mail::send(new \App\Mail\Contact($request->email));
+                return back()->with('message', 'Contact Form submitted successfully');
+            }
         } else {
-            return redirect()->back()->with('message', 'Please, try again!');
+            return back()->with('error', 'Try Again');
         }
     }
 

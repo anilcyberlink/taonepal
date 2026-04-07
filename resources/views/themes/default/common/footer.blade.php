@@ -43,10 +43,11 @@
                     <div>
                         <h4 class="font-bold mb-4 text-footer-heading">Support</h4>
                         <ul class="space-y-2">
-                            <li><a href="/donations.php" class="footer-link text-sm">Donate</a></li>
-                            <li><a href="/contact.php" class="footer-link text-sm">Contact</a></li>
-                            <li><a href="/privacy-policy.php" class="footer-link text-sm">Privacy Policy</a></li>
-                            <li><a href="/terms.php" class="footer-link text-sm">Terms</a></li>
+                            @foreach($support as $sup)
+                                <li>
+                                    <a href="{{ url('page/' . posttype_url($sup->uri)) }}" class="footer-link text-sm">{{ $sup->post_type }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 
