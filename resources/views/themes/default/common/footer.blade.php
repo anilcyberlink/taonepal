@@ -45,7 +45,7 @@
                         <ul class="space-y-2">
                             @foreach($support as $sup)
                                 <li>
-                                    <a href="{{ url('page/' . posttype_url($sup->uri)) }}" class="footer-link text-sm">{{ $sup->post_type }}</a>
+                                    <a href="{{ url('tao/' . posttype_url($sup->uri)) }}" class="footer-link text-sm">{{ $sup->post_type }}</a>
                                 </li>
                             @endforeach
                         </ul>

@@ -66,7 +66,7 @@ class FrontpageController extends Controller
 
         $posts = PostModel::where(['post_type' => $data->id, 'status' => '1', 'post_parent' => '0'])->orderBy('post_order', 'asc')->paginate(16);
         // dd($data,$posts);
-        
+
         return view('themes.default.' . $template, compact('data', 'posts'));
     }
 
@@ -75,35 +75,23 @@ class FrontpageController extends Controller
         if (!check_uri($uri)) {
             abort(404);
         }
-        $data = PostModel::where('uri', $uri)->orWhere('page_key', $uri)->first();
-        $uri = explode('.', $uri);
-        $_uri = $uri[0];
-        $tmpl['template'] = 'single';
-        if ($tmpl['template']) {
-            $data['template'] = $data['template'];
-        }
+        $data = PostModel::where('uri', $uri)->orWhere('page_key', $uri)->firstOrFail();
+        $associated_posts = AssociatedPostModel::where('post_id', $data['id'])->paginate(12);
+
+        $template = !empty($data->template) ? $data->template : 'single';
 
         if ($data->id) {
             $data->visiter = $data->visiter + 1;
             $data->save();
         }
+        $post_type = PostTypeModel::where('id', $data['post_type'])->first();
+        $data_child = PostModel::where('post_parent', $data['id'])->orderBy('post_order', 'desc')->paginate(9);
+        $related_child = PostModel::where('post_parent', $data['post_parent'])->orderBy('post_order', 'desc')->take(5)->get();
+        $related = PostModel::where('post_type', $data['post_type'])->where('uri', '!=', $data->uri)->where('post_parent', '=', 0)->orderBy('post_order', 'asc')->take('4')->get();
 
-        $data_child = PostModel::where('post_parent', $data['id'])->orderBy('post_order', 'asc')->paginate(9);
-        $associated_posts = AssociatedPostModel::where('post_id', $data['id'])->get();
-        $documents = PostDocModel::where('post_id', $data['id'])->orderBy('ordering', 'desc')->get();
-        $related = PostModel::where('post_type', $data['post_type'])->orderBy('post_order', 'desc')->take(6)->get();
-        $pos_type = PostTypeModel::where('id', $data->post_type)->first();
-        $currentUser = PostModel::find($data->id);
-        $previous = PostModel::where('id', '<', $currentUser->id)->where('post_type', '30')->select('*')->first();
-        $next = PostModel::where('id', '>', $currentUser->id)->where('post_type', '30')->select('*')->first();
-        $category = PostCategoryModel::where('post_type', $data->post_type)->get();
-        if ($data->post_type == 29) {
-            $data['template'] = "doctors-single";
-        }
-        if ($data->post_type == 30) {
-            $data['template'] = "media-single";
-        }
-        return view('themes.default.' . $data['template'] . '', compact('category', 'previous', 'next', 'pos_type', 'related', '_uri', 'data', 'data_child', 'associated_posts', 'documents'));
+        // DD($data);
+
+        return view('themes.default.' . $template, compact('data'));
     }
 
     public function pagedetail_child($parenturi, $uri)
