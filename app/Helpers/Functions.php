@@ -127,9 +127,9 @@ function posttype_url($uri){
   $count = PostTypeModel::where(['uri'=>$uri])->count();
   $data = PostTypeModel::where(['uri'=>$uri])->first();
   if($count > 1){
-    return $data->page_key.'.html';
+    return $data->page_key;
   }
- return $data->uri.'.html';
+ return $data->uri;
 }
 
 // Check and List Child Post

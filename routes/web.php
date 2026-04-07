@@ -41,8 +41,9 @@ Route::redirect('/dashboard', '/admin/dashboard', 301);
 Route::get('banners', 'FrontendControllers\FrontpageController@banners');
 
 // Normal Pages
-Route::get('{uri}.html', 'FrontendControllers\FrontpageController@pagedetail')->name('page.pagedetail');
-Route::get('page/{uri}.html', 'FrontendControllers\FrontpageController@posttype')->name('page.posttype');
+Route::get('page/{uri}', 'FrontendControllers\FrontpageController@pagedetail')->name('page.pagedetail');
+Route::get('tao/{uri}', 'FrontendControllers\FrontpageController@posttype')->name('page.posttype');
+
 Route::get('service-category/{uri}.html', 'FrontendControllers\FrontpageController@servicetype')->name('page.servicetype');
 Route::get('trades/detail/{uri}', 'FrontendControllers\FrontpageController@portfolio')->name('page.portfolio');
 Route::post('/service/serviceorder/{uri}', 'FrontendControllers\FrontpageController@serviceorder')->where('uri', '[0-9A-Za-z]+');
