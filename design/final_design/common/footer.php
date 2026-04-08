@@ -23,7 +23,7 @@
                         <ul class="space-y-2">
                             <li><a href="/seminars.php" class="footer-link text-sm">Seminars &amp; Events</a></li>
                             <li><a href="/travel.php" class="footer-link text-sm">Travel Programs</a></li>
-                            <li><a href="/temples.php" class="footer-link text-sm">Temples</a></li>
+                            <!-- <li><a href="/temples.php" class="footer-link text-sm">Temples</a></li> -->
                             <li><a href="/gurus.php" class="footer-link text-sm">Gurus</a></li>
                         </ul>
                     </div>
@@ -33,7 +33,7 @@
                         <h4 class="font-bold mb-4 text-footer-heading">Community</h4>
                         <ul class="space-y-2">
                             <li><a href="/about.php" class="footer-link text-sm">About Us</a></li>
-                            <li><a href="/blog.php" class="footer-link text-sm">Blog</a></li>
+                            <!-- <li><a href="/blog.php" class="footer-link text-sm">Blog</a></li> -->
                             <li><a href="/gallery.php" class="footer-link text-sm">Gallery</a></li>
                             <li><a href="/locations.php" class="footer-link text-sm">Locations</a></li>
                         </ul>
@@ -44,7 +44,7 @@
                         <h4 class="font-bold mb-4 text-footer-heading">Support</h4>
                         <ul class="space-y-2">
                             <li><a href="/donations.php" class="footer-link text-sm">Donate</a></li>
-                            <li><a href="/contact.php" class="footer-link text-sm">Contact</a></li>
+                            <!-- <li><a href="/contact.php" class="footer-link text-sm">Contact</a></li> -->
                             <li><a href="/privacy-policy.php" class="footer-link text-sm">Privacy Policy</a></li>
                             <li><a href="/terms.php" class="footer-link text-sm">Terms</a></li>
                         </ul>

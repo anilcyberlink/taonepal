@@ -111,7 +111,7 @@
                                 class="submenu absolute left-0 top-full mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
                                 <a href="/seminars.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Seminars &amp; Events</a>
                                 <a href="/travel.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Travel Programs</a>
-                                <a href="/temples.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Temples</a>
+                                <!-- <a href="/temples.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Temples</a> -->
                             </div>
                         </div>
 
@@ -130,7 +130,7 @@
                     <div class="flex items-center gap-2 md:gap-4">
 
                         <!-- Search -->
-                        <a href="/search">
+                        <!-- <a href="/search">
                             <button
                                 class="h-10 w-10 flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:!text-background transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search">
@@ -139,7 +139,7 @@
                                 </svg>
                                 <span class="sr-only">Search</span>
                             </button>
-                        </a>
+                        </a> -->
 
                         <!-- Dark Mode Toggle -->
                         <button id="theme-toggle" class="h-9 w-9 flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:!text-background transition-colors">
@@ -198,9 +198,9 @@
                     <div>
                         <p class="font-semibold text-gray-900 mb-2">Programs</p>
                         <div class="pl-4 space-y-2">
-                            <a href="/seminars" class="block text-sm text-gray-500 hover:text-violet-600">Seminars &amp; Events</a>
-                            <a href="/travel" class="block text-sm text-gray-500 hover:text-violet-600">Travel Programs</a>
-                            <a href="/temples" class="block text-sm text-gray-500 hover:text-violet-600">Temples</a>
+                            <a href="/seminars.php" class="block text-sm text-gray-500 hover:text-violet-600">Seminars &amp; Events</a>
+                            <a href="/travel.php" class="block text-sm text-gray-500 hover:text-violet-600">Travel Programs</a>
+                            <!-- <a href="/temples.php" class="block text-sm text-gray-500 hover:text-violet-600">Temples</a> -->
                         </div>
                     </div>
 
