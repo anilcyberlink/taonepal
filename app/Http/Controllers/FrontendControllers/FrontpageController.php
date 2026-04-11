@@ -91,7 +91,7 @@ class FrontpageController extends Controller
 
         // DD($data);
 
-        return view('themes.default.' . $template, compact('data'));
+        return view('themes.default.' . $template, compact('data','related'));
     }
 
     public function pagedetail_child($parenturi, $uri)
