@@ -169,7 +169,7 @@
                     <div class="flex items-center gap-2 md:gap-4">
 
                         <!-- Search -->
-                        <a href="/search">
+                        {{-- <a href="/search">
                             <button
                                 class="h-10 w-10 flex items-center justify-center rounded-md hover:bg-gray-100 dark:hover:!text-background transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
@@ -180,7 +180,7 @@
                                 </svg>
                                 <span class="sr-only">Search</span>
                             </button>
-                        </a>
+                        </a> --}}
 
                         <!-- Dark Mode Toggle -->
                         <button id="theme-toggle"
