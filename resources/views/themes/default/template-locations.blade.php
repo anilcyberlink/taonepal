@@ -12,7 +12,7 @@
             <div class="md:col-span-2 space-y-8">
                 <!-- Hero Image -->
                 <div class="rounded-lg overflow-hidden h-96 bg-muted flex items-center justify-center text-6xl">
-                    <img src="/images/gallery_8.jpg" alt="Kathmandu Branch" class="w-full h-full object-cover" />
+                    <img src="{{ $data->banner ? asset('uploads/medium/' . $data->banner) : asset('themes-assets/images/gallery_8.jpg') }}" alt="{{ $data->post_title }}" class="w-full h-full object-cover" />
                 </div>
                 <!-- Contact Information -->
                 <div class="rounded-lg border border-border bg-card p-8">
@@ -27,7 +27,7 @@
                             </svg>
                             <div>
                                 <p class="font-semibold text-foreground">Address</p>
-                                <p class="text-muted-foreground">Sitapaila, Kathmandu, Nepal</p>
+                                <p class="text-muted-foreground">{{ $data->place}}</p>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
                             </svg>
                             <div>
                                 <p class="font-semibold text-foreground">Phone</p>
-                                <a href="tel:+977-1-4700000" class="text-primary hover:underline">+977-1-4700000</a>
+                                <a href="tel:+{{ $data->phone }}" class="text-primary hover:underline">{{ $data->phone }}</a>
                             </div>
                         </div>
 
@@ -53,21 +53,7 @@
                             </svg>
                             <div>
                                 <p class="font-semibold text-foreground">Email</p>
-                                <a href="mailto:kathmandu@taoassociation.org"
-                                    class="text-primary hover:underline">kathmandu@taoassociation.org</a>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3 items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 mt-1 text-primary"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>
-                            <div>
-                                <p class="font-semibold text-foreground">Hours</p>
-                                <p class="text-muted-foreground">Daily: 9:00 AM – 8:00 PM</p>
+                                <p class="text-primary hover:underline">{{ $data->email }}</p>
                             </div>
                         </div>
 
@@ -115,7 +101,7 @@
                     <p class="text-sm mb-6">
                         Have questions? Send us a message.
                     </p>
-                    <a href="/contact.php?location=kathmandu">
+                    <a href=" ">
                         <button
                             class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded text-sm font-medium transition-colors bg-background text-primary hover:text-black dark:text-white dark:hover:bg-white dark:hover:text-black">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
@@ -131,45 +117,13 @@
                 <div class="rounded-lg border border-border bg-card p-6">
                     <h3 class="font-bold text-foreground mb-4 font-display">Other Locations</h3>
                     <div class="space-y-3">
-                        <a href="/location-details.php"
-                            class="block p-3 rounded-lg border border-border hover:bg-muted transition-colors">
-                            <p class="font-semibold text-foreground text-sm">Pokhara Branch</p>
-                            <p class="text-xs text-muted-foreground">Gandaki District</p>
-                        </a>
-
-                        <a href="/location-details.php"
-                            class="block p-3 rounded-lg border border-border hover:bg-muted transition-colors">
-                            <p class="font-semibold text-foreground text-sm">Chitwan Branch</p>
-                            <p class="text-xs text-muted-foreground">Bagmati District</p>
-                        </a>
-
-                        <a href="/location-details.php"
-                            class="block p-3 rounded-lg border border-border hover:bg-muted transition-colors">
-                            <p class="font-semibold text-foreground text-sm">Bhairahawa Branch</p>
-                            <p class="text-xs text-muted-foreground">Lumbini Province</p>
-                        </a>
-
-                    </div>
-                </div>
-
-                <!-- Quick Info -->
-                <div class="rounded-lg border border-border p-6 bg-muted">
-                    <h3 class="font-bold text-foreground mb-4 font-display">Quick Info</h3>
-                    <div class="space-y-2 text-sm text-muted-foreground">
-                        <div>
-                            <p class="font-semibold text-foreground text-xs uppercase tracking-wider">District</p>
-                            <p>Kathmandu</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-foreground text-xs uppercase tracking-wider mt-3">Activities
-                            </p>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span
-                                    class="text-xs px-2 py-0.5 rounded-full bg-muted-foreground text-white dark:text-background">Meditation</span>
-                                <span
-                                    class="text-xs px-2 py-0.5 rounded-full bg-muted-foreground text-white dark:text-background">Philosophy</span>
-                            </div>
-                        </div>
+                        @foreach ($related as $row)
+                            <a href="{{ route('page.pagedetail', $row->uri) }}"
+                                class="block p-3 rounded-lg border border-border hover:bg-muted transition-colors">
+                                <p class="font-semibold text-foreground text-sm">{{ $row->post_title }}</p>
+                                <p class="text-xs text-muted-foreground">{{ $row->place }}</p>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
 
