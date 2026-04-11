@@ -68,8 +68,15 @@
                 <div class="rounded-lg border border-border bg-card p-6">
                     <h3 class="text-xl font-bold mb-4 text-foreground font-display">Other Gurus</h3>
                     <div class="space-y-3">
-
                         @foreach ($related as $row)
+                            <a href="{{ route('page.pagedetail', $row->uri) }}"
+                                class="block p-3 rounded-lg border border-border hover:bg-muted transition-colors">
+                                <p class="font-semibold text-foreground text-sm">{{ $row->post_title }}</p>
+                                <p class="text-xs text-muted-foreground">{{ $row->sub_title }}</p>
+                            </a>
+                        @endforeach
+
+                        {{-- @foreach ($related as $row)
                             <a href="{{ route('page.pagedetail', $row->uri) }}" class="group flex items-start gap-2">
                                 <span class="mt-2 w-2 h-2 bg-gray-400 rounded-full group-hover:bg-blue-500 transition-colors"></span>
 
@@ -82,7 +89,7 @@
                                     </p>
                                 </div>
                             </a>
-                        @endforeach
+                        @endforeach --}}
 
                     </div>
                 </div>
