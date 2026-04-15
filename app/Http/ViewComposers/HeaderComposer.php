@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\view;
 use App\Models\Posts\PostTypeModel;
 use App\Models\Posts\PostModel;
 use App\Models\Settings\SettingModel;
+use App\Models\Portfolios\PortfolioCategoryModel;
 
 class HeaderComposer
 {
@@ -18,6 +19,10 @@ class HeaderComposer
     public function compose(View $view)
     {
         $view->with('navigations', PostTypeModel::where(['is_menu' => '1'])
+            ->orderBy('ordering', 'asc')
+            ->get());
+
+        $view->with('programs', PortfolioCategoryModel::where(['status' => '1'])
             ->orderBy('ordering', 'asc')
             ->get());
 

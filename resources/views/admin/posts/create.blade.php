@@ -41,6 +41,42 @@
                             </div>
                         </div>
                     </div>
+                    @if (Request::segment(2) == 'locations')
+                        <div class="form-group">
+                            <label for="inputStandard" class="col-lg-2 control-label">Address</label>
+                            <div class="col-lg-9">
+                                <div class="bs-component">
+                                    <input type="text" id="" name="address" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="textArea3">Phone Number</label>
+                            <div class="col-lg-9">
+                                <div class="bs-component">
+                                    <input type="text" class="form-control" id="" name="phone" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="textArea3"> Email </label>
+                            <div class="col-lg-9">
+                                <div class="bs-component">
+                                    <input type="email" class="form-control" id="" name="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="textArea3"> Map </label>
+                            <div class="col-lg-9">
+                                <div class="bs-component">
+                                    <textarea type="text" class="form-control" id="" name="map_link" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     @if (Request::segment(2) == 'find-a-doctor')
                         <div class="form-group">
                             <label for="inputStandard" class="col-lg-2 control-label">Facebook Link</label>

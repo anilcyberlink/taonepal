@@ -89,7 +89,7 @@ class FrontpageController extends Controller
         $related_child = PostModel::where('post_parent', $data['post_parent'])->orderBy('post_order', 'desc')->take(5)->get();
         $related = PostModel::where('post_type', $data['post_type'])->where('uri', '!=', $data->uri)->where('post_parent', '=', 0)->orderBy('post_order', 'asc')->take('4')->get();
 
-        // DD($data);
+        DD($data);
 
         return view('themes.default.' . $template, compact('data','related'));
     }
@@ -130,13 +130,33 @@ class FrontpageController extends Controller
 
     public function portfolio($uri)
     {
-        $data = PortfolioModel::where('uri', $uri)->first();
-        $associated_post = AssociatedPortfolioModel::where('portfolio_id', $data['id'])->get();
-        $trades = PortfolioModel::inRandomOrder()->limit(2)->get();
-        if ($data) {
-            return view('themes.default.trade', compact('data', 'associated_post', 'trades'));
+        $data = PortfolioCategoryModel::where('uri', $uri)->first();
+        $portfolios = PortfolioModel::where('category_id', $data->id)->get();
+        $template = !empty($data->template) ? $data->template : 'portfolioCategory-default';
+        // dd($portfolios,$data);
+
+        return view('themes.default.' . $template, compact('data','portfolios'));
+    }
+
+    public function portfolio_pagedetail($uri)
+    {
+        if (!check_program_uri($uri)) {
+            abort(404);
         }
-        return false;
+        $data = PortfolioModel::where('uri', $uri)->firstOrFail();
+
+        $template = !empty($data->template) ? $data->template : 'portfolio-default';
+
+        if ($data->id) {
+            $data->visitor = $data->visitor + 1;
+            $data->save();
+        }
+        $category = PortfolioCategoryModel::where('id', $data['category_id'])->first();
+        $related = PortfolioModel::where('category_id', $category->id)->where('uri', '!=', $data->uri)->orderBy('ordering', 'asc')->take('4')->get();
+
+        // DD($data,$category,$related);
+
+        return view('themes.default.' . $template, compact('data','related'));
     }
 
     public function servicetype($category_uri)

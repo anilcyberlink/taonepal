@@ -31,14 +31,12 @@
                         <h3 class="font-display text-primary text-xl font-bold mb-2">{{ $row->post_title }}</h3>
                         <p class="text-sm text-muted-foreground mb-3">{{ $row->sub_title }}</p>
                         <div class="text-sm text-sm text-muted-foreground space-y-1">
-                            <div>📍 {{ $row->place }}</div>
+                            <div>📍 {{ $row->address }}</div>
                             <div>📞 {{ $row->phone }}</div>
                             <div>✉ {{ $row->email }}</div>
                         </div>
                         <div class="mt-4">
-                            <iframe class="border-0 w-full h-[300px] grayscale-[20%] rounded"
-                                src="https://maps.google.com/maps?q=Sitapaila,Kathmandu,Nepal&output=embed" allowfullscreen
-                                loading="lazy"></iframe>
+                            <img src="{{ $row->page_thumbnail ? asset('uploads/medium/' . $row->page_thumbnail) : asset('themes-assets/images/gallery_8.jpg') }}" alt="{{ $row->post_title }}" class="w-full h-full object-cover" />
                         </div>
                     </div>
                 </a>
@@ -48,24 +46,28 @@
 </div>
 
 <!-- Other branches list -->
-<section class="py-16 md:py-24 bg-muted">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-14">
-            <div class="ornament mb-4">
-                <span class="font-display text-xs tracking-[0.3em] text-gold uppercase">Our Branches</span>
+@if($posts->count() > 2)
+    <section class="py-16 md:py-24 bg-muted">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <div class="ornament mb-4">
+                    <span class="font-display text-xs tracking-[0.3em] text-gold uppercase">Our Branches</span>
+                </div>
+                <h2 class="font-serif text-primary font-bold text-4xl mb-4">Other Branch Locations</h2>
             </div>
-            <h2 class="font-serif text-primary font-bold text-4xl mb-4">Other Branch Locations</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach($posts->skip(2) as $row)
+                    <a href="{{ route('page.pagedetail', $row->uri) }}"
+                        class="bg-card border border-border rounded-[2px] overflow-hidden transition-all duration-300 shadow-sm hover:-translate-y-1 hover:shadow-lg p-5">
+                        <h4 class="font-display text-primary text-base font-semibold mb-1">{{ $row->post_title }}</h4>
+                        <p class="text-muted-foreground text-sm text-sm">{{ $row->place }}</p>
+                        <p class="text-xs text-muted-foreground mt-2"> 📞{{ $row->phone }}</p>
+                    </a>
+                @endforeach
+            </div>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            @foreach($posts->skip(2) as $row)
-                <a href="{{ route('page.pagedetail', $row->uri) }}"
-                    class="bg-card border border-border rounded-[2px] overflow-hidden transition-all duration-300 shadow-sm hover:-translate-y-1 hover:shadow-lg p-5">
-                    <h4 class="font-display text-primary text-base font-semibold mb-1">{{ $row->post_title }}</h4>
-                    <p class="text-muted-foreground text-sm text-sm">{{ $row->place }}</p>
-                    <p class="text-xs text-muted-foreground mt-2"> 📞{{ $row->phone }}</p>
-                </a>
-            @endforeach
-        </div>
-    </div>
-</section>
+    </section>
+@endif
+
+
 @stop
