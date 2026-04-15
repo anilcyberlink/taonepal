@@ -8,6 +8,6 @@ class PortfolioCategoryModel extends Model
 {
     protected $table = 'cl_portfolio_categories';
     protected $fillable = [
-    	'category','category_caption','category_content','uri','ordering','thumbnail','status'
+    	'category','category_caption','category_content','uri','template','ordering','thumbnail','status'
     ];
 }

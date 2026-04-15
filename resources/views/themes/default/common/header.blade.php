@@ -148,18 +148,13 @@
 
                         <!-- Programs with submenu -->
                         <div class="relative nav-group">
-                            <a href="#"
-                                class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Programs</a>
+                            <a class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Programs</a>
                             <div
                                 class="submenu absolute left-0 top-full mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
-                                <a href="/seminars.php"
-                                    class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Seminars
-                                    &amp; Events</a>
-                                <a href="/travel.php"
-                                    class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Travel
-                                    Programs</a>
-                                <a href="/temples.php"
-                                    class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">Temples</a>
+                                @foreach($programs as $program)
+                                    <a href="{{ route('page.program',$program->uri) }}"
+                                        class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">{{ $program->category }}</a>
+                                @endforeach
                             </div>
                         </div>
 

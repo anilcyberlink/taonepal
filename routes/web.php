@@ -44,8 +44,11 @@ Route::get('banners', 'FrontendControllers\FrontpageController@banners');
 Route::get('page/{uri}', 'FrontendControllers\FrontpageController@pagedetail')->name('page.pagedetail');
 Route::get('tao/{uri}', 'FrontendControllers\FrontpageController@posttype')->name('page.posttype');
 
+Route::get('program/{uri}', 'FrontendControllers\FrontpageController@portfolio_pagedetail')->name('page.portfoliodetail');
+Route::get('programs/{uri}', 'FrontendControllers\FrontpageController@portfolio')->name('page.program');
+
+
 Route::get('service-category/{uri}.html', 'FrontendControllers\FrontpageController@servicetype')->name('page.servicetype');
-Route::get('trades/detail/{uri}', 'FrontendControllers\FrontpageController@portfolio')->name('page.portfolio');
 Route::post('/service/serviceorder/{uri}', 'FrontendControllers\FrontpageController@serviceorder')->where('uri', '[0-9A-Za-z]+');
 Route::get('{parenturi}/{uri}.html', 'FrontendControllers\FrontpageController@pagedetail_child')->name('page.pagedetail_child');
 Route::get('{parenturi}/apply/{uri}.html', 'FrontendControllers\FrontpageController@apply');
@@ -106,7 +109,7 @@ Route::middleware(['auth'])->group(function () {
         'admin/settings' => 'AdminControllers\Settings\SettingController',
         'admin/department' => 'AdminControllers\Departments\DepartmentController',
         'admin/circulartype' => 'AdminControllers\Circulars\CircularTypeController',
-        'admin/portfoliocategory' => 'AdminControllers\Portfolios\PortfolioCategoryController',
+        'admin/programcategory' => 'AdminControllers\Portfolios\PortfolioCategoryController',
         'admin/our-trades' => 'AdminControllers\Portfolios\PortfolioController',
         'admin/dwninfo' => 'AdminControllers\Posts\DwnInfoController',
         'admin/tender' => 'AdminControllers\Tenders\TenderController',

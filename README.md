@@ -21,3 +21,9 @@ Previous Database Backup : --/--/----(MM/DD/YYYY)
 ## Notes
 1. Intervention Image is locked at version 2.7.2, compatible with Laravel 6 to 10.
 2. Tinymce installed.
+
+<!-- Fields added in db -->
+'email','phone','map_link','address' in post model
+'template' in PortfolioCategoryModel
+'country','service','client_name'  PortfolioModel -> change the type in db
+'visitor','template' in PortfolioModel

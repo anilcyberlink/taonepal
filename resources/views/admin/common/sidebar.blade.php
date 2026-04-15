@@ -81,28 +81,28 @@
                 </ul>
             </li>
             <li class="">
-                @if (Request::segment(2) == 'our-trades')
+                @if (Request::segment(2) == 'our-trades' || Request::segment(2) == 'programcategory')
                     <a class="accordion-toggle menu-open">
                     @else
                         <a class="accordion-toggle">
                 @endif
                 <span class="fa fa-files-o text-info" aria-hidden="true"></span>
-                <span class="sidebar-title"> Manage Trades </span>
+                <span class="sidebar-title"> Manage Programs </span>
                 <span class="caret"></span>
                 </a>
                 <ul class="nav sub-nav">
 
-                    <li>
-                        <a href="{{ url('admin/portfoliocategory') }}">
+                    <li class="{{ Request::segment(2) == 'programcategory' ? 'active' : '' }}">
+                        <a href="{{ url('admin/programcategory') }}">
                             <span class="fa fa fa-arrows-h"></span>
-                            Portfolio Category
+                            Program Category
                         </a>
                     </li>
 
-                    <li>
+                    <li class="{{ Request::segment(2) == 'our-trades' ? 'active' : '' }}">
                         <a href="{{ url('admin/our-trades') }}">
                             <span class="fa fa fa-arrows-h"></span>
-                            Trades
+                            Programs
                         </a>
                     </li>
                 </ul>

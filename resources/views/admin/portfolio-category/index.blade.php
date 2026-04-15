@@ -1,40 +1,40 @@
 @extends('admin.master')
 @section('title','Post Category')
 @section('breadcrumb')
-<a href="{{ route('portfoliocategory.create') }}" class="btn btn-primary btn-sm">Create </a>
+<a href="{{ route('programcategory.create') }}" class="btn btn-primary btn-sm">Create </a>
 @endsection
 @section('content')
 <div class="tray tray-center" style="height: 647px;">
-<div class="panel">         
+<div class="panel">
 	<div class="panel-body ph20">
 		<div class="tab-content">
 			<div id="users" class="tab-pane active">
 				<div class="table-responsive mhn20 mvn15">
-			
+
 					<table class="table admin-form theme-warning fs13">
 						<thead>
 							<tr class="bg-light">
 								<th class="">SN</th>
-								<th class="">Post Category</th>                            
+								<th class="">Post Category</th>
 								<th class="text-left">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							@if(count($data) > 0)	            
+							@if(count($data) > 0)
 							@foreach($data as $row)
 							<tr class="id{{$row->id}}">
 								<td class="">{{$loop->iteration}}</td>
 								<td class="">{{ ucfirst($row->category) }}</td>
-								<td class="text-left">  
-								<a href="{{ route('portfoliocategory.edit',$row->id) }}">Edit</a>
+								<td class="text-left">
+								<a href="{{ route('programcategory.edit',$row->id) }}">Edit</a>
 								@if(!is_empty_category($row->id))
 									|
-									<a href="#{{$row->id}}" class="btn-delete">Delete</a> 
-								@endif	
+									<a href="#{{$row->id}}" class="btn-delete">Delete</a>
+								@endif
 								</td>
 							</tr>
 							@endforeach
-							@endif  
+							@endif
 						</tbody>
 					</table>
 				</div>
@@ -57,11 +57,11 @@ jQuery(document).ready(function() {
     $.ajax({
       type:'DELETE',
       url:"{{url('postcategory') . '/'}}" + id,
-      data:{_token:csrf},    
-      success:function(data){ 
+      data:{_token:csrf},
+      success:function(data){
         $('tbody tr.id' + id ).remove();
       },
-      error:function(data){       
+      error:function(data){
        alert('Error occurred!');
      }
    });
