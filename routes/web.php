@@ -71,7 +71,7 @@ Route::post('/newsletter/newsletter-signup', 'FrontendControllers\NewsletterSign
 Route::post('/dwn/dwnpdf', 'FrontendControllers\NewsletterSignupController@dwnpdf')->name('dwnpdf');
 Route::get('/dwn/dwnform/{key_string}', 'FrontendControllers\NewsletterSignupController@dwnform')->name('dwnform');
 
-Route::get('page/photogallery/{category_id}', 'FrontendControllers\FrontpageController@photo_gallery');
+Route::get('gallery', 'FrontendControllers\FrontpageController@galleries')->name('gallery');
 
 // Send Forms and Mail
 Route::post('page/post-contact', 'FrontendControllers\FrontpageController@sendmail_contact')->name('sendmail_contact');

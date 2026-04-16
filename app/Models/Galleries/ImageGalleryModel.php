@@ -8,4 +8,10 @@ class ImageGalleryModel extends Model
 {
     protected $table = 'cl_gallery_images';
     protected $fillable = ['category_id','picture','caption'];
+
+    // Each image belongs to a category
+    public function category()
+    {
+        return $this->belongsTo(ImageGalleryCategoryModel::class, 'category_id');
+    }
 }

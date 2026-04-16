@@ -140,23 +140,27 @@
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center gap-1 flex-1 ml-12">
 
-                        <a href="/" class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Home</a>
+                        <a href="{{ url('/') }}" class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Home</a>
                         @foreach ($navigations as $row)
                             <a href="{{ url('tao/' . posttype_url($row->uri)) }}"
                                 class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">{{ $row->post_type }}</a>
                         @endforeach
+                        <a href="{{ route('gallery') }}"
+                                class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Galleries</a>
 
                         <!-- Programs with submenu -->
-                        <div class="relative nav-group">
-                            <a class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Programs</a>
-                            <div
-                                class="submenu absolute left-0 top-full mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
-                                @foreach($programs as $program)
-                                    <a href="{{ route('page.program',$program->uri) }}"
-                                        class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">{{ $program->category }}</a>
-                                @endforeach
+                        @if($programs->count() > 0)
+                            <div class="relative nav-group">
+                                <a class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Programs</a>
+                                <div
+                                    class="submenu absolute left-0 top-full mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
+                                    @foreach($programs as $program)
+                                        <a href="{{ route('page.program',$program->uri) }}"
+                                            class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:text-gray-900">{{ $program->category }}</a>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
+                        @endif
 
                     </div>
 
@@ -244,25 +248,24 @@
             <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white px-4 pb-6">
                 <div class="flex flex-col gap-4 mt-8">
 
-                    <a href="/" class="text-gray-900 hover:text-violet-600 font-medium">Home</a>
-                    <a href="/about.php" class="text-gray-900 hover:text-violet-600 font-medium">About</a>
+                    <a href="{{ url('/') }}" class="text-gray-900 hover:text-violet-600 font-medium">Home</a>
+                    @foreach ($navigations as $row)
+                        <a href="{{ url('tao/' . posttype_url($row->uri)) }}" class="text-gray-900 hover:text-violet-600 font-medium">{{ $row->post_type }}</a>
+                    @endforeach
 
                     <!-- Programs submenu (expanded in mobile) -->
-                    <div>
-                        <p class="font-semibold text-gray-900 mb-2">Programs</p>
-                        <div class="pl-4 space-y-2">
-                            <a href="/seminars" class="block text-sm text-gray-500 hover:text-violet-600">Seminars
-                                &amp; Events</a>
-                            <a href="/travel" class="block text-sm text-gray-500 hover:text-violet-600">Travel
-                                Programs</a>
-                            <a href="/temples" class="block text-sm text-gray-500 hover:text-violet-600">Temples</a>
+                    @if($programs->count() > 0)
+                        <div>
+                            <p class="font-semibold text-gray-900 mb-2">Programs</p>
+                            <div class="pl-4 space-y-2">
+                                @foreach($programs as $program)
+                                    <a href="{{ route('page.program',$program->uri) }}" class="block text-sm text-gray-500 hover:text-violet-600">{{ $program->category }}</a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
 
-                    <a href="/locations.php" class="text-gray-900 hover:text-violet-600 font-medium">Locations</a>
-                    <a href="/gurus.php" class="text-gray-900 hover:text-violet-600 font-medium">Gurus</a>
-                    <a href="/gallery.php" class="text-gray-900 hover:text-violet-600 font-medium">Gallery</a>
-                    <a href="/contact.php" class="text-gray-900 hover:text-violet-600 font-medium">Contact</a>
+                    <a href="{{ route('gallery') }}" class="text-gray-900 hover:text-violet-600 font-medium">Galleries</a>
 
                     <a href="/donations.php" class="mt-4">
                         <button
