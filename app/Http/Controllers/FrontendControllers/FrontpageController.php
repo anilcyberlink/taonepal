@@ -159,6 +159,14 @@ class FrontpageController extends Controller
         return view('themes.default.' . $template, compact('data','related'));
     }
 
+    public function galleries()
+    {
+        $data = ImageGalleryCategoryModel::where('status', 1)->with('images')->get();
+        // dd($data);
+
+        return view('themes.default.gallery-list', compact('data'));
+    }
+
     public function servicetype($category_uri)
     {
         $category = PostCategoryModel::where('uri', $category_uri)->first();
