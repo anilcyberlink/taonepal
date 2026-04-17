@@ -3,6 +3,7 @@
 namespace App\Http\ViewComposers;
 
 use Illuminate\Contracts\View\view;
+use App\Models\Portfolios\PortfolioCategoryModel;
 use App\Models\Settings\SettingModel;
 use App\Models\Posts\PostModel;
 use App\Models\Posts\PostTypeModel;
@@ -19,6 +20,10 @@ class FooterComposer{
 		$view->with('support', PostTypeModel::where(['is_menu'=>'1'])
 			->orderBy('ordering','asc')
 			->get());
+
+        $view->with('programs', PortfolioCategoryModel::where(['status' => '1'])
+            ->orderBy('ordering', 'asc')
+            ->get());
 
 
 
