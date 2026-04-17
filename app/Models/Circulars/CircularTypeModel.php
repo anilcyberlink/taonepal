@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class CircularTypeModel extends Model
 {
     protected $table = 'cl_circular_type';
-    protected $fillable = ['circular_type','uri','ordering'];
+    protected $fillable = ['circular_type','uri','ordering','sub_title','description'];
 }

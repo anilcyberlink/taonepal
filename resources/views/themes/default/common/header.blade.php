@@ -5,11 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TAO Association of Nepal (TAN)</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+    </script>
 
     <link rel="stylesheet" href="{{ asset('themes-assets/css/globals.css') }}" />
     <link rel="stylesheet" href="{{ asset('themes-assets/css/styles.css') }}" />
@@ -118,6 +126,8 @@
 </head>
 
 <body class="font-sans antialiased">
+
+    @include('themes.default.common.response')
     <div class="flex flex-col min-h-screen">
         <nav id="navbar" class="sticky top-0 z-50 w-full transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -208,7 +218,7 @@
                         </button>
 
                         <!-- Donate Button -->
-                        <a href="/donations.php" class="hidden sm:flex">
+                        <a href="{{ route('donations') }}" class="hidden sm:flex">
                             <button
                                 class="flex items-center gap-2 bg-primary dark:hover:text-background text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24"
@@ -267,7 +277,7 @@
 
                     <a href="{{ route('gallery') }}" class="text-gray-900 hover:text-violet-600 font-medium">Galleries</a>
 
-                    <a href="/donations.php" class="mt-4">
+                    <a href="{{ route('donations') }}" class="mt-4">
                         <button
                             class="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24"

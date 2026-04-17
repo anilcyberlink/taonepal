@@ -121,15 +121,15 @@
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <label class="col-lg-3 control-label" for="textArea2"> Footer Title </label>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="textArea2"> Bank Details </label>
                         <div class="col-lg-8">
                             <div class="bs-component">
-                                <input type="text" class="form-control" id="" name="welcome_title" rows="3"
-                                    value="{{$data->welcome_title}}" />
+                                <textarea type="text" class="form-control  my-editor" name="welcome_title" rows="5">{{ $data->welcome_title }}
+                                </textarea>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="textArea2">Footer Text</label>
