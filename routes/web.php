@@ -72,6 +72,8 @@ Route::post('/dwn/dwnpdf', 'FrontendControllers\NewsletterSignupController@dwnpd
 Route::get('/dwn/dwnform/{key_string}', 'FrontendControllers\NewsletterSignupController@dwnform')->name('dwnform');
 
 Route::get('gallery', 'FrontendControllers\FrontpageController@galleries')->name('gallery');
+Route::get('donations', 'FrontendControllers\FrontpageController@donations')->name('donations');
+Route::post('donations/submit', 'FrontendControllers\FrontpageController@post_donations')->name('post.donations');
 
 // Send Forms and Mail
 Route::post('page/post-contact', 'FrontendControllers\FrontpageController@sendmail_contact')->name('sendmail_contact');
@@ -81,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/dashboard', 'DashboardController@index')->name('dashboard');
 
 
-    Route::get('admin/appointment', 'DashboardController@proposal_request')->name('appointment.index');
+    Route::get('admin/donation-lists', 'DashboardController@proposal_request')->name('appointment.index');
     Route::get('admin/proposal-delete/{id}', 'DashboardController@proposal_delete')->name('proposal-delete');
     Route::get('admin/trip-booking', 'DashboardController@trip_booking')->name('trip-booking');
     Route::get('admin/trip-booking-delete/{id}', 'DashboardController@trip_booking_delete')->name('trip-booking-delete');
@@ -108,7 +110,7 @@ Route::middleware(['auth'])->group(function () {
         'admin/videogallery' => 'AdminControllers\Galleries\VideoGalleryController',
         'admin/settings' => 'AdminControllers\Settings\SettingController',
         'admin/department' => 'AdminControllers\Departments\DepartmentController',
-        'admin/circulartype' => 'AdminControllers\Circulars\CircularTypeController',
+        'admin/donations' => 'AdminControllers\Circulars\CircularTypeController',
         'admin/programcategory' => 'AdminControllers\Portfolios\PortfolioCategoryController',
         'admin/our-trades' => 'AdminControllers\Portfolios\PortfolioController',
         'admin/dwninfo' => 'AdminControllers\Posts\DwnInfoController',

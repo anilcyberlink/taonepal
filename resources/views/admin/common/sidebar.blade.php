@@ -108,19 +108,23 @@
                 </ul>
             </li>
             <li class="">
-                <a href="avoid:javascript;" class="accordion-toggle">
+                @if (Request::segment(2) == 'imagegallery' || Request::segment(2) == 'imagecategory')
+                    <a class="accordion-toggle menu-open">
+                    @else
+                        <a class="accordion-toggle">
+                @endif
                     <span class="fa fa-file-image-o text-info"></span>
-                    <span class="sidebar-title"> Manage Photo Gallery </span>
+                    <span class="sidebar-title"> Manage Gallery </span>
                     <span class="caret"></span>
                 </a>
                 <ul class="nav sub-nav">
-                    <li>
+                    <li class="{{ Request::segment(2) == 'imagecategory' ? 'active' : '' }}">
                         <a href="{{ url('admin/imagecategory') }}">
                             <span class="fa fa fa-arrows-h"></span>
                             Gallery Category
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ Request::segment(2) == 'imagegallery' ? 'active' : '' }}">
                         <a href="{{ url('admin/imagegallery') }}">
                             <span class="fa fa fa-arrows-h"></span>
                             Photos
@@ -128,7 +132,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="">
+            {{-- <li class="">
                 <a href="avoid:javascript;" class="accordion-toggle">
                     <span class="fa fa-file-video-o text-info"></span>
                     <span class="sidebar-title"> Manage Video Gallery </span>
@@ -148,21 +152,25 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="">
-                <a href="{{ url('admin/circular') }}" class="accordion-toggle">
+                @if (Request::segment(3) == 'circular' || Request::segment(2) == 'donations')
+                    <a class="accordion-toggle menu-open">
+                    @else
+                        <a class="accordion-toggle">
+                @endif
                     <span class="fa fa-files-o text-info"></span>
-                    <span class="sidebar-title">Manage Circular </span>
+                    <span class="sidebar-title">Manage Donations </span>
                     <span class="caret"></span>
                 </a>
                 <ul class="nav sub-nav">
-                    <li>
-                        <a href="{{ url('admin/circulartype') }}">
+                    <li class="{{ Request::segment(2) == 'donations' ? 'active' : '' }}">
+                        <a href="{{ url('admin/donations') }}">
                             <span class="fa fa fa-arrows-h"></span>
-                            Circular Type
+                            Donation Type
                         </a>
                     </li>
-                    @if ($circulartype)
+                    {{-- @if ($circulartype)
                         @foreach ($circulartype as $circular)
                             <li>
                                 <a href="{{ route('admin.circular.index', $circular->id) }}">
@@ -171,10 +179,10 @@
                                 </a>
                             </li>
                         @endforeach
-                    @endif
+                    @endif --}}
                 </ul>
             </li>
-            <li class="">
+            {{-- <li class="">
                 <a href="#" class="accordion-toggle">
                     <span class="fa fa-files-o text-info"></span>
                     <span class="sidebar-title"> Manage Tender </span>
@@ -200,8 +208,8 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li class="">
+            </li> --}}
+            {{-- <li class="">
                 <a href="{{ url('admin/user') }}" class="accordion-toggle">
                     <span class="glyphicon glyphicon-user text-info"></span>
                     <span class="sidebar-title">Manage Members </span>
@@ -227,8 +235,8 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li class="">
+            </li> --}}
+            {{-- <li class="">
                 <a class="accordion-toggle">
                     <span class="glyphicon glyphicon-user text-info"></span>
                     <span class="sidebar-title"> Manage Users </span>
@@ -254,8 +262,8 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
                 <a href="{{ url('newsletter/subcribers') }}">
                     <span class="fa fa-users text-info" aria-hidden="true"></span>
                     <span class="sidebar-title"> Newsletter Subcribers </span>
@@ -266,11 +274,11 @@
                     <span class="fa fa-download text-info"></span>
                     <span class="sidebar-title"> Download Info </span>
                 </a>
-            </li>
-            <li class="{{ Request::segment(2) == 'appointment' ? 'active' : '' }}">
-                <a href="{{ url('admin/appointment') }}">
+            </li> --}}
+            <li class="{{ Request::segment(2) == 'donation-lists' ? 'active' : '' }}">
+                <a href="{{ url('admin/donation-lists') }}">
                     <span class="fa fa-file-image-o text-info" aria-hidden="true"></span>
-                    <span class="sidebar-title">Appointments</span>
+                    <span class="sidebar-title">Donations Received</span>
                 </a>
             </li>
             <!--  <li>

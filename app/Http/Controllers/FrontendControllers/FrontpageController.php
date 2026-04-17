@@ -34,6 +34,7 @@ use App\Models\Posts\PostTypeModel;
 use App\Models\Portfolios\PortfolioCategoryModel;
 use App\Models\Portfolios\PortfolioModel;
 use App\Models\Portfolios\AssociatedPortfolioModel;
+use App\Models\Circulars\CircularTypeModel;
 
 use Illuminate\Support\Str;
 
@@ -167,6 +168,52 @@ class FrontpageController extends Controller
         return view('themes.default.gallery-list', compact('data'));
     }
 
+    public function donations()
+    {
+        $data = CircularTypeModel::orderBy('ordering','asc')->get();
+        // dd($data);
+
+        return view('themes.default.donations', compact('data'));
+    }
+    public function post_donations(Request $request)
+    {
+        $g_recaptcha_response = $request->input('g_recaptcha_response');
+        $result = $this->getCaptcha($g_recaptcha_response);
+        if ($result->success == true) {
+            // dd($request->all());
+            $request->validate([
+                'amount' => 'required',
+                'full_name' => 'required|string|max:255',
+                'phone' => 'required|string|max:50',
+                'email' => 'required|email|max:255',
+                'purpose' => 'required',
+                'payment' => 'required',
+            ]);
+
+            $data = Appointment::create([
+                'full_name' => $request->full_name,
+                'email' => $request->email,
+                'contact' => $request->phone,
+                'doctor' => $request->amount,
+                'gender' => $request->purpose,
+                'department' => $request->payment
+            ]);
+
+            // return new \App\Mail\AdminContactMail($request->email);
+            // Mail::send(new \App\Mail\Contact($request->email));
+            return back()->with([
+                'success' => true,
+                'message' => 'Donation Requested Successfully.'
+            ]);
+
+        } else {
+            return back()->with([
+                'error' => true,
+                'message' => 'Try Again.'
+            ]);
+        }
+    }
+
     public function servicetype($category_uri)
     {
         $category = PostCategoryModel::where('uri', $category_uri)->first();
@@ -233,7 +280,7 @@ class FrontpageController extends Controller
         $g_recaptcha_response = $request->input('g_recaptcha_response');
         $result = $this->getCaptcha($g_recaptcha_response);
         if ($result->success == true) {
-            dd($request->all());
+            // dd($request->all());
             $request->validate([
                 'name' => 'required',
                 'email' => 'required|email',
@@ -254,10 +301,16 @@ class FrontpageController extends Controller
 
                 // return new \App\Mail\AdminContactMail($request->email);
                 // Mail::send(new \App\Mail\Contact($request->email));
-                return back()->with('message', 'Contact Form submitted successfully');
+                return back()->with([
+                    'success' => true,
+                    'message' => 'Contact Form submitted successfully.'
+                ]);
             }
         } else {
-            return back()->with('error', 'Try Again');
+            return back()->with([
+                'error' => true,
+                'message' => 'Try Again.'
+            ]);
         }
     }
 

@@ -28,7 +28,9 @@ class CircularTypeController extends Controller
      */
     public function create()
     {
-         return view('admin.circular-type.create');
+        $ordering = CircularTypeModel::max('ordering');
+        $ordering = $ordering + 1;
+        return view('admin.circular-type.create', compact('ordering'));
     }
 
     /**
@@ -87,6 +89,7 @@ class CircularTypeController extends Controller
         $data->circular_type = $request->circular_type;
         $data->uri = Str::slug($request->uri);
         $data->ordering = $request->ordering;
+        $data->description = $request->description;
         $data->save();
         return redirect()->back()->with('message','Update Successful.');
     }
