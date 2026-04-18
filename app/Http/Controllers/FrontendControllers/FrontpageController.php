@@ -90,7 +90,7 @@ class FrontpageController extends Controller
         $related_child = PostModel::where('post_parent', $data['post_parent'])->orderBy('post_order', 'desc')->take(5)->get();
         $related = PostModel::where('post_type', $data['post_type'])->where('uri', '!=', $data->uri)->where('post_parent', '=', 0)->orderBy('post_order', 'asc')->take('4')->get();
 
-        DD($data);
+        // DD($data);
 
         return view('themes.default.' . $template, compact('data','related'));
     }
