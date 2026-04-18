@@ -149,6 +149,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="textArea2">Quote</label>
+                        <div class="col-lg-9">
+                            <div class="bs-component">
+                            <textarea class="form-control" id="" name="quote" rows="3">{{$data->quote}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="textArea2">Harmony</label>
+                        <div class="col-lg-9">
+                            <div class="bs-component">
+                            <textarea class="form-control" id="" name="harmony" rows="3">{{$data->harmony}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="textArea2">Compassion</label>
+                        <div class="col-lg-9">
+                            <div class="bs-component">
+                            <textarea class="form-control" id="" name="compassion" rows="3">{{$data->compassion}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="textArea2">Wisdom</label>
+                        <div class="col-lg-9">
+                            <div class="bs-component">
+                            <textarea class="form-control" id="" name="wisdom" rows="3">{{$data->wisdom}}</textarea>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label for="inputStandard" class="col-lg-3 control-label">Meta Key</label>

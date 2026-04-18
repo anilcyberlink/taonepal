@@ -50,10 +50,10 @@
                 <ul class="space-y-2">
                     @foreach($support->skip(3) as $sup)
                         <li>
-                            <a href="{{ url('tao/' . posttype_url($sup->uri)) }}"
-                                class="footer-link text-sm">{{ $sup->post_type }}</a>
+                            <a href="{{ url('tao/' . posttype_url($sup->uri)) }}" class="footer-link text-sm">{{ $sup->post_type }}</a>
                         </li>
                     @endforeach
+                    <a href="{{ route('donations') }}" class="footer-link text-sm">Donation</a>
                 </ul>
             </div>
             <div>

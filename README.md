@@ -28,3 +28,4 @@ Previous Database Backup : --/--/----(MM/DD/YYYY)
 'country','service','client_name'  PortfolioModel -> change the type in db
 'visitor','template' in PortfolioModel
 'sub_title','description' in CircularTypeModel
+'harmony','compassion','wisdom','quote' in Setting

@@ -70,3 +70,26 @@ nav:not(.scrolled) {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
+
+/* Added By ANil */
+.gallery-item {
+    height: 260px;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    position: relative;
+    margin-right: 24px;
+    /* width is set by JS */
+}
+
+@media (min-width: 640px) {
+    .gallery-item {
+        min-width: calc((100% - 24px) / 2);   /* sm: 2 images, 1 gap */
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-item {
+        min-width: calc((100% - 48px) / 3);   /* lg: 3 images, 2 gaps */
+    }
+}
