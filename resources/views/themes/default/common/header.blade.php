@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
+
     <link rel="stylesheet" href="{{ asset('themes-assets/css/globals.css') }}" />
     <link rel="stylesheet" href="{{ asset('themes-assets/css/styles.css') }}" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -154,13 +154,6 @@
                     <div class="hidden md:flex items-center gap-1 flex-1 ml-12">
 
                         <a href="{{ url('/') }}" class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Home</a>
-                        @foreach ($navigations as $row)
-                            <a href="{{ url('tao/' . posttype_url($row->uri)) }}"
-                                class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">{{ $row->post_type }}</a>
-                        @endforeach
-                        <a href="{{ route('gallery') }}"
-                                class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Galleries</a>
-
                         <!-- Programs with submenu -->
                         @if($programs->count() > 0)
                             <div class="relative nav-group">
@@ -174,6 +167,13 @@
                                 </div>
                             </div>
                         @endif
+                        @foreach ($navigations as $row)
+                            <a href="{{ url('tao/' . posttype_url($row->uri)) }}"
+                                class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">{{ $row->post_type }}</a>
+                        @endforeach
+                        <a href="{{ route('gallery') }}"
+                                class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">Gallery</a>
+
 
                     </div>
 
@@ -262,10 +262,6 @@
                 <div class="flex flex-col gap-4 mt-8">
 
                     <a href="{{ url('/') }}" class="text-gray-900 hover:text-violet-600 font-medium">Home</a>
-                    @foreach ($navigations as $row)
-                        <a href="{{ url('tao/' . posttype_url($row->uri)) }}" class="text-gray-900 hover:text-violet-600 font-medium">{{ $row->post_type }}</a>
-                    @endforeach
-
                     <!-- Programs submenu (expanded in mobile) -->
                     @if($programs->count() > 0)
                         <div>
@@ -277,8 +273,11 @@
                             </div>
                         </div>
                     @endif
+                    @foreach ($navigations as $row)
+                        <a href="{{ url('tao/' . posttype_url($row->uri)) }}" class="text-gray-900 hover:text-violet-600 font-medium">{{ $row->post_type }}</a>
+                    @endforeach
 
-                    <a href="{{ route('gallery') }}" class="text-gray-900 hover:text-violet-600 font-medium">Galleries</a>
+                    <a href="{{ route('gallery') }}" class="text-gray-900 hover:text-violet-600 font-medium">Gallery</a>
 
                     <a href="{{ route('donations') }}" class="mt-4">
                         <button

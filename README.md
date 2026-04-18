@@ -23,9 +23,9 @@ Previous Database Backup : --/--/----(MM/DD/YYYY)
 2. Tinymce installed.
 
 <!-- Fields added in db -->
-'email','phone','map_link','address' in post model
-'template' in PortfolioCategoryModel
-'country','service','client_name'  PortfolioModel -> change the type in db
-'visitor','template' in PortfolioModel
-'sub_title','description' in CircularTypeModel
-'harmony','compassion','wisdom','quote' in Setting
+'email','phone','map_link','address' in post model,
+'template' in PortfolioCategoryModel,
+'country','service','client_name'  PortfolioModel -> change the type in db,
+'visitor','template' in PortfolioModel,
+'sub_title','description' in CircularTypeModel,
+'harmony','compassion','wisdom','quote' in Setting,
