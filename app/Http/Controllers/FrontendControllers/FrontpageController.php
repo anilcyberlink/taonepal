@@ -43,17 +43,18 @@ class FrontpageController extends Controller
 
     public function index(Request $request)
     {
-        $banner = BannerModel::where('status', 1)->get();
-        $service = PostTypeModel::where('id', 28)->first();
-        $services = PostModel::where(['post_type' => '28', 'show_in_home' => '1', 'status' => '1'])->orderBy('home_order', 'asc')->get();
-        $news = PostTypeModel::where('id', 30)->first();
-        $media = PostModel::where(['post_type' => '30', 'show_in_home' => '1', 'status' => '1'])->take(3)->get();
-        $about = PostTypeModel::where('id', 27)->first();
-        $whyus = AssociatedPostModel::where(['post_id' => '148'])->get();
-        $setting =SettingModel::where(['id'=>'1'])->first();
-        // dd($setting);
+        $banners = BannerModel::where('status', 1)->get();
+        $galleries = ImageGalleryModel::whereHas('category', function ($q) {
+                        $q->where('status', 1);
+                    })
+                    ->limit(7)->get();
+        $about = PostTypeModel::where('id', 1)->firstOrFail();
+        $posts = collect();
+        if($about) {
+            $posts = PostModel::where(['post_type' => $about->id, 'status' => '1', 'post_parent' => '0'])->orderBy('post_order', 'asc')->take(2)->get();
+        }
 
-        return view('themes.default.frontpage', compact('whyus', 'service', 'media', 'about', 'banner', 'services', 'news'));
+        return view('themes.default.frontpage', compact('banners','galleries','about','posts'));
     }
 
     public function posttype(Request $request, $uri)

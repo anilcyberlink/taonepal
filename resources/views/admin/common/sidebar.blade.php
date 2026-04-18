@@ -35,7 +35,7 @@
             <li>
                 @if (Request::segment(2) == 'posttype' ||
                         Request::segment(2) == 'postcategory' ||
-                        Request::segment(2) == 'about-us' ||
+                        Request::segment(2) == 'about' ||
                         Request::segment(2) == 'services' ||
                         Request::segment(2) == 'find-a-doctor' ||
                         Request::segment(2) == 'news-media' ||

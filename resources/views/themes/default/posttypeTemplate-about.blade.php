@@ -42,7 +42,7 @@
             </div>
             <h2 class="font-serif text-primary font-bold text-4xl mb-4">The Way of Tao</h2>
             <p class="text-muted-foreground font-body text-xl max-w-2xl mx-auto italic">
-                "The Tao that can be told is not the eternal Tao" — Lao Tzu
+                {{ $setting->quote }}
             </p>
         </div>
 
@@ -50,20 +50,17 @@
             <div class="bg-card border border-border overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-sm p-8 text-center">
                 <div class="text-5xl mb-5">☯</div>
                 <h3 class="text-primary text-lg font-semibold mb-3">Harmony</h3>
-                <p class="text-muted-foreground text-sm">Living in balance with the natural order, aligning body,
-                    mind, and spirit with the universal flow of existence.</p>
+                <p class="text-muted-foreground text-sm">{{ $setting->harmony }}</p>
             </div>
             <div class="bg-card border border-border overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-sm p-8 text-center">
                 <div class="text-5xl mb-5">🪷</div>
                 <h3 class="text-primary text-lg font-semibold mb-3">Compassion</h3>
-                <p class="text-muted-foreground text-sm">Cultivating love and kindness toward all beings — the
-                    foundation of spiritual life and community service.</p>
+                <p class="text-muted-foreground text-sm">{{ $setting->compassion }}</p>
             </div>
             <div class="bg-card border border-border overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-sm p-8 text-center">
                 <div class="text-5xl mb-5">✨</div>
                 <h3 class="text-primary text-lg font-semibold mb-3">Wisdom</h3>
-                <p class="text-muted-foreground text-sm">Seeking truth through practice, meditation, and the
-                    teachings of realized masters who have walked the path before us.</p>
+                <p class="text-muted-foreground text-sm">{{ $setting->wisdom }}</p>
             </div>
         </div>
 

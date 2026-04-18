@@ -38,3 +38,76 @@ function showTab(name) {
     document.getElementById('tab-' + name).classList.remove('hidden');
     document.querySelector('[data-tab="' + name + '"]').classList.add('active');
 }
+
+// Images in Home page
+const container = document.getElementById('autoGallery');
+const gap = 24;
+
+function getVisibleCount() {
+    const w = container.clientWidth;
+    if (w >= 1024) return 3;
+    if (w >= 640) return 2;
+    return 1;
+}
+
+function setItemWidths() {
+    const count = getVisibleCount();
+    const itemWidth = (container.clientWidth - gap * (count - 1)) / count;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.minWidth = itemWidth + 'px';
+    });
+    return itemWidth;
+}
+
+// Set widths before cloning
+setItemWidths();
+
+// Clone for seamless loop
+const originalItems = Array.from(container.querySelectorAll('.gallery-item'));
+originalItems.forEach(item => {
+    container.appendChild(item.cloneNode(true));
+});
+
+let currentIndex = 0;
+const total = originalItems.length;
+
+function getItemWidth() {
+    return container.querySelector('.gallery-item').offsetWidth + gap;
+}
+
+setInterval(() => {
+    currentIndex++;
+    const itemWidth = getItemWidth();
+
+    container.scrollTo({ left: currentIndex * itemWidth, behavior: 'smooth' });
+
+    if (currentIndex >= total) {
+        setTimeout(() => {
+            container.scrollTo({ left: 0, behavior: 'instant' });
+            currentIndex = 0;
+        }, 600);
+    }
+}, 4500);
+
+// Recalculate on resize
+window.addEventListener('resize', () => {
+    setItemWidths();
+    currentIndex = 0;
+    container.scrollTo({ left: 0, behavior: 'instant' });
+});
+// Banner
+new Swiper('.hero-slider', {
+    loop: true,
+    autoplay: {
+        delay: 8000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
