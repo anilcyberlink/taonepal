@@ -19,7 +19,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="space-y-12">
                 @foreach($portfolios as $row)
-                    @if($loop->first)
+                    @if($loop->odd)
                         <div class="bg-card border border-border rounded-[2px] overflow-hidden transitiona-all duration-300 ease-in-out shadow-sm hover:shadow-2xl overflow-hidden">
                             <div class="grid lg:grid-cols-2">
                                 <div class="p-10">
